@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+<<<<<<< HEAD
 Route::get('/nanikiru', function () {
     return view('nanikiru');
 });
+=======
+Route::get('/nanikiru','nanikiruController@index');
+>>>>>>> 97151af37260850a0a22821f72b1117f877fbec0
