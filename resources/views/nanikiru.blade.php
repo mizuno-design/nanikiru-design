@@ -1,5 +1,8 @@
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 97151af37260850a0a22821f72b1117f877fbec0
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +11,10 @@
     <body>
         <h1>何切る？1</h1>
         <form method="POST" action="/result">
+<<<<<<< HEAD
+            @csrf
+            <img src="./ji1.png">
+=======
         @csrf
         <!-- 牌姿画像 -->
 
@@ -16,6 +23,7 @@
             <!-- 問題番号 -->
             Q<?php echo $paishi_image_i+1; ?>
         </div>
+<<<<<<< HEAD
             <div>
                 <!-- 牌姿を作成 -->
                 @foreach($paishi_image as $pai_image)
@@ -36,6 +44,9 @@
 
 
         <input type="submit" value="送信">
+=======
+>>>>>>> 97151af37260850a0a22821f72b1117f877fbec0
+>>>>>>> 3281a33305381c2d78b7a664fc977b3066e39da4
         </form>
     </body>
 </html>
