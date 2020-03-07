@@ -7,7 +7,6 @@ use App\Answer;
 
 class Question extends Model
 {
-    //
     protected $table = 'questions';
 
     public function answer() {

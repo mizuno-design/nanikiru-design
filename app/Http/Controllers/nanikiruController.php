@@ -4,26 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Answer;
 
 //何切るコントローラー
 class nanikiruController extends Controller
 {
     public function index() {
-        //全ての問題牌姿
+        //全ての問牌姿
         $paishi_image_array = [];
         //全ての問題選択肢
         $answer_choice_array = [];
-        $questions = Question::all();
+
+        $questions = Question::with('answer')->get();
         foreach($questions as $question) {
             //問題牌姿
             $paishi_image_array[] = $this->convertPaishi($question->question);
-            //問題選択肢
-            $answer_choice_array[] = $question->choice;
-            dd($question);
         }
-        return view('nanikiru', compact('paishi_image_array'));
+        $answers = Answer::with('question')->get();
+        foreach($answers as $answer) {
+            //問題選択肢
+            $answer_choice_array[$answer->question_id][] = $this->convertPai($answer->choice);
+        }
+        return view('nanikiru', compact('paishi_image_array', 'answer_choice_array'));
     }
 
+    /**
+     * 牌姿(14枚)の文字列をimage名の配列に変換
+     * @return 画像名の配列
+     */
     private function convertPaishi($paishi) : Array {
         $paishi_image_array = [];
 
@@ -112,5 +120,42 @@ class nanikiruController extends Controller
             $paishi_image_array[] = 'ji'. $paishi[$i] .'.png';
         }
         return $paishi_image_array;
+    }
+
+    /**
+     * 牌の文字列(ex,3s,r5s,j1)を牌の画像名に変換
+     * return 牌画名の文字列
+     */
+    private function convertPai($pai) {
+        //赤の場合
+        if($pai[0] === "r") {
+            switch($pai[-1]) {
+                case "m":
+                    return 'aka5man.png';
+                    break;
+                case "p":
+                    return 'aka5pin.png';
+                    break;
+                case "s":
+                    return 'aka5sou.png';
+                    break;
+            }
+        }
+
+        switch($pai[-1]) {
+            case "z":
+                return 'ji'. $pai[-2] .'.png';
+                break;
+            case "m":
+                return 'man'. $pai[-2] .'.png';
+                break;
+            case "p":
+                return 'pin'. $pai[-2] .'.png';
+                break;
+            case "s":
+                return 'sou'. $pai[-2] .'.png';
+                break;
+        }
+        return false;
     }
 }
