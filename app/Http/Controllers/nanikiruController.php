@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\QuestionType;
 use App\Answer;
 
 //何切るコントローラー
@@ -14,21 +15,32 @@ class nanikiruController extends Controller
         $paishi_image_array = [];
         //全ての問題選択肢
         $answer_choice_array = [];
+        //全ての問題ポイント
+        $answer_point_array = [];
+        //全ての問題タイプ
+        $question_type_array = [];
 
         $questions = Question::with('answer')->get();
         foreach($questions as $question) {
             //問題牌姿
             $paishi_image_array[] = $this->convertPaishi($question->question);
         }
+
         $answers = Answer::with('question')->get();
         foreach($answers as $answer) {
             //問題選択肢
             $answer_choice_array[$answer->question_id][] = $this->convertPai($answer->choice);
             //問題ポイント
             $answer_point_array[$answer->question_id][] = $answer->point;
-            //問題タイプ
         }
-        return view('nanikiru', compact('paishi_image_array', 'answer_choice_array', 'answer_point_array'));
+
+
+        $question_types = QuestionType::all();
+        foreach($question_types as $type) {
+            $question_type_array[$type->id] = $type->description;
+        }
+
+        return view('nanikiru', compact('questions', 'answers', 'paishi_image_array', 'answer_choice_array', 'answer_point_array', 'question_type_array'));
     }
 
     public function result(Request $request) {

@@ -35,7 +35,7 @@
                     <!-- 回答番号 -->
                     A<?php echo $paishi_image_i+1; ?>
                     @foreach($answer_choice_array[$paishi_image_i+1] as $j => $choice_img)
-                        <input type="radio" name="choice<?php echo $j; ?>" value="">
+                        <input type="radio" name="choice<?php echo $j; ?>" value=<?php echo $answer_point_array[$paishi_image_i+1][$j]; ?>>
                         <img src="{{ asset("/tile_images/$choice_img") }}">
                     @endforeach
                 </div>
