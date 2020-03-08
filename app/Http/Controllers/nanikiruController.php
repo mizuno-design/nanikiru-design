@@ -24,8 +24,15 @@ class nanikiruController extends Controller
         foreach($answers as $answer) {
             //問題選択肢
             $answer_choice_array[$answer->question_id][] = $this->convertPai($answer->choice);
+            //問題ポイント
+            $answer_point_array[$answer->question_id][] = $answer->point;
+            //問題タイプ
         }
-        return view('nanikiru', compact('paishi_image_array', 'answer_choice_array'));
+        return view('nanikiru', compact('paishi_image_array', 'answer_choice_array', 'answer_point_array'));
+    }
+
+    public function result(Request $request) {
+        return view('result');
     }
 
     /**
