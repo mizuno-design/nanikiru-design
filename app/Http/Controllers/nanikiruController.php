@@ -32,6 +32,8 @@ class nanikiruController extends Controller
             $answer_choice_array[$answer->question_id][] = $this->convertPai($answer->choice);
             //問題ポイント
             $answer_point_array[$answer->question_id][] = $answer->point;
+            //問題タイプID
+            $answer_question_type_array[$answer->question_id][] = $answer->question->question_type_id;
         }
 
 
@@ -40,7 +42,7 @@ class nanikiruController extends Controller
             $question_type_array[$type->id] = $type->description;
         }
 
-        return view('nanikiru', compact('questions', 'answers', 'paishi_image_array', 'answer_choice_array', 'answer_point_array', 'question_type_array'));
+        return view('nanikiru', compact('questions', 'answers', 'paishi_image_array', 'answer_choice_array', 'answer_point_array', 'question_type_array', 'answer_question_type_array'));
     }
 
     public function result(Request $request) {

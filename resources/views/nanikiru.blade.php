@@ -20,10 +20,11 @@
             @csrf
             <!-- 牌姿画像 -->
 
-            @foreach($paishi_image_array as $paishi_image_i => $paishi_image)
+            @foreach($paishi_image_array as $i => $paishi_image)
+                <?php $qa_num = $i+1; ?>
                 <div>
                     <!-- 問題番号 -->
-                    Q<?php echo $paishi_image_i+1; ?>
+                    Q<?php echo $qa_num; ?>
                     <!-- 牌姿を作成 -->
                     @foreach($paishi_image as $pai_image)
                         <img src="{{ asset("/tile_images/$pai_image") }}">
@@ -33,11 +34,22 @@
                 <!-- 回答選択肢を作成 -->
                 <div>
                     <!-- 回答番号 -->
-                    A<?php echo $paishi_image_i+1; ?>
-                    @foreach($answer_choice_array[$paishi_image_i+1] as $j => $choice_img)
-                        <input type="radio" name="choice<?php echo $j; ?>" value=<?php echo $answer_point_array[$paishi_image_i+1][$j]; ?>>
-                        <img src="{{ asset("/tile_images/$choice_img") }}">
-                    @endforeach
+                    A<?php echo $qa_num; ?>
+
+                    <input id=<?php echo "question0_$qa_num" ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>" value="<?php echo $answer_point_array[$qa_num][0]; ?>" checked>
+                    <label for=<?php echo "question0_$qa_num"; ?>>
+                        <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][0]) }}">
+                    </label>
+
+                    <input id=<?php echo "question1_$qa_num"; ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][1]; ?>" value="<?php echo $answer_point_array[$qa_num][1]; ?>">
+                    <label for=<?php echo "question1_$qa_num"; ?>>
+                        <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][1]) }}">
+                    </label>
+
+                    <input id=<?php echo "question2_$qa_num"; ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][2];?>" value="<?php echo $answer_point_array[$qa_num][2]; ?>">
+                    <label for=<?php echo "question2_$qa_num"; ?>>
+                        <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][2]) }}">
+                    </label>
                 </div>
             @endforeach
 
