@@ -1,3 +1,5 @@
-div {
-    background-color: aqua;
+
+.question_area {
+    width: 90%;
+    background-color: red;
 }

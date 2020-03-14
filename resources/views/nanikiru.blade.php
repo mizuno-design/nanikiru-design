@@ -9,7 +9,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <style>
-
+            .question_area {
+                width: 110%;
+                margin-bottom: 10px;
+            }
+            .answer_area {
+                margin-bottom: 30px;
+            }
         </style>
     </head>
     <body>
@@ -22,20 +28,19 @@
 
             @foreach($paishi_image_array as $i => $paishi_image)
                 <?php $qa_num = $i+1; ?>
-                <div>
+                <div class="question_area">
                     <!-- 問題番号 -->
                     <span> Q<?php echo $qa_num; ?> </span>
                     <!-- 牌姿を作成 -->
                     @foreach($paishi_image as $pai_image)
                         <img src="{{ asset("/tile_images/$pai_image") }}">
                     @endforeach
-                    
                     ドラ
                         <img src="{{ asset("/tile_images/$dora_array[$i]") }}">
                     <br>
                 </div>
                 <!-- 回答選択肢を作成 -->
-                <div>
+                <div class="answer_area">
                     <!-- 回答番号 -->
                     <span> A<?php echo $qa_num; ?> </span>
 
