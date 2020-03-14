@@ -18,7 +18,7 @@
                 <div style="width: 500px; height: 500px;">
                     <canvas id="myChart" width="20" height="20"></canvas>
                 <div>
-            <p></p>
+            <button type="button" class="btn btn-primary" onclick="location.href='/nanikiru_analysis/public/nanikiru'">戻る</button>
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -26,29 +26,38 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
         <script>
         var ctx = document.getElementById('myChart').getContext('2d');
+        var question_type_array = [];
+        var question_type_count = "<?php echo(count($result_array)); ?>";
+        question_type_array[0] = "<?php echo($result_array[1]['get_score']); ?>";
+        question_type_array[1] = "<?php echo($result_array[2]['get_score']); ?>";
+        question_type_array[2] = "<?php echo($result_array[3]['get_score']); ?>";
+        question_type_array[3] = "<?php echo($result_array[4]['get_score']); ?>";
+        question_type_array[4] = "<?php echo($result_array[5]['get_score']); ?>";
+        question_type_array[5] = "<?php echo($result_array[6]['get_score']); ?>";
+
         var myChart = new Chart(ctx, {
             type: 'radar',
             data: {
                 labels: ['テンパイ時の判断', 'イーシャンテン時の判断', '孤立牌の比較', '安くて遠い手の判断', '形のセオリー', '5ブロックと6ブロックの比較'],
                 datasets: [{
-                    label: '牌効率チャート',
-                    data: [12, 19, 3, 6, 2, 0],
+                    label: '牌効率力',
+                    data: [question_type_array[0], question_type_array[1], question_type_array[2], question_type_array[3], question_type_array[4], question_type_array[5]],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 0.2)',
                     ],
                     borderWidth: 1,
                 }]
             },
             options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+                scale: {
+                    ticks: {
+                        stepSize: 5,
+                        max: 15,
+                        min: 0,
+                    }
                 }
             }
         });

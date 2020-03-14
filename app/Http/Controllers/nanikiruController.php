@@ -55,11 +55,11 @@ class nanikiruController extends Controller
             $question_type = $key[-1];
             //問題タイプごとの累計得点と満点を計算
             if(array_key_exists($question_type, $result_array)) {
-                $result_array[$question_type]['get_scoere'] += $request;
-                $result_array[$question_type]['perfect_scoere'] += 5;
+                $result_array[$question_type]['get_score'] += $request;
+                $result_array[$question_type]['perfect_score'] += 5;
             } else {
-                $result_array[$question_type]['get_scoere'] = $request;
-                $result_array[$question_type]['perfect_scoere'] = 5;
+                $result_array[$question_type]['get_score'] = $request;
+                $result_array[$question_type]['perfect_score'] = 5;
             }
         }
         return view('result', compact('result_array'));
