@@ -24,17 +24,20 @@
                 <?php $qa_num = $i+1; ?>
                 <div>
                     <!-- 問題番号 -->
-                    Q<?php echo $qa_num; ?>
+                    <span> Q<?php echo $qa_num; ?> </span>
                     <!-- 牌姿を作成 -->
                     @foreach($paishi_image as $pai_image)
                         <img src="{{ asset("/tile_images/$pai_image") }}">
                     @endforeach
+                    
+                    ドラ
+                        <img src="{{ asset("/tile_images/$dora_array[$i]") }}">
                     <br>
                 </div>
                 <!-- 回答選択肢を作成 -->
                 <div>
                     <!-- 回答番号 -->
-                    A<?php echo $qa_num; ?>
+                    <span> A<?php echo $qa_num; ?> </span>
 
                     <input id=<?php echo "question0_$qa_num" ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>" value="<?php echo $answer_point_array[$qa_num][0]; ?>" checked>
                     <label for=<?php echo "question0_$qa_num"; ?>>

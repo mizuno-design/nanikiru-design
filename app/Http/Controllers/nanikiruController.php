@@ -24,6 +24,8 @@ class nanikiruController extends Controller
         foreach($questions as $question) {
             //問題牌姿
             $paishi_image_array[] = $this->convertPaishi($question->question);
+            //問題ドラ
+            $dora_array[] = $this->convertPai($question->dora);
         }
 
         $answers = Answer::with('question')->get();
@@ -42,7 +44,7 @@ class nanikiruController extends Controller
             $question_type_array[$type->id] = $type->description;
         }
 
-        return view('nanikiru', compact('questions', 'answers', 'paishi_image_array', 'answer_choice_array', 'answer_point_array', 'question_type_array', 'answer_question_type_array'));
+        return view('nanikiru', compact('questions', 'answers', 'paishi_image_array', 'answer_choice_array', 'answer_point_array', 'question_type_array', 'answer_question_type_array', 'dora_array'));
     }
 
     public function result(Request $request) {
