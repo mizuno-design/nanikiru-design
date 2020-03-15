@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/nanikiru','nanikiruController@index');
-Route::post('/result','nanikiruController@result');
-Route::get('/result','nanikiruController@result');
+Route::get('nanikiru','nanikiruController@index');
+Route::post('result','nanikiruController@result');
+Route::get('test','nanikiruController@test');
+Route::get('home','homeController@home');

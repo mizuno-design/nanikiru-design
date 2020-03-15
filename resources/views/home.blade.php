@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>何切る分析</title>
+        <title>home</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     </head>
     <body>
-        <h1>何切る分析a</h1>
+        <h1>home</h1>
         <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">分析をする</button>
-        <form method="POST" action="result">
-            @csrf
-        <input class="btn btn-primary" type="submit" value="送信">
-        </form>
+
     </body>
 </html>

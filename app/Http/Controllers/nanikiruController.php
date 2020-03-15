@@ -10,6 +10,10 @@ use App\Answer;
 //何切るコントローラー
 class nanikiruController extends Controller
 {
+    public function test() {
+        return view('test');
+    }
+    
     public function index() {
         //全ての問牌姿
         $paishi_image_array = [];
@@ -47,7 +51,6 @@ class nanikiruController extends Controller
     }
 
     public function result(Request $request) {
-        dd('a');
         $all_request = $request->all();
         unset($all_request['_token']);
         //結果の配列
