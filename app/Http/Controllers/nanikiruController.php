@@ -13,7 +13,7 @@ class nanikiruController extends Controller
     public function test() {
         return view('test');
     }
-    
+
     public function index() {
         //全ての問牌姿
         $paishi_image_array = [];
@@ -41,7 +41,6 @@ class nanikiruController extends Controller
             //問題タイプID
             $answer_question_type_array[$answer->question_id][] = $answer->question->question_type_id;
         }
-
 
         $question_types = QuestionType::all();
         foreach($question_types as $type) {
