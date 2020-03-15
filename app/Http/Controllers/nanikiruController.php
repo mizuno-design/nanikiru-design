@@ -43,11 +43,11 @@ class nanikiruController extends Controller
         foreach($question_types as $type) {
             $question_type_array[$type->id] = $type->description;
         }
-
         return view('nanikiru', compact('questions', 'answers', 'paishi_image_array', 'answer_choice_array', 'answer_point_array', 'question_type_array', 'answer_question_type_array', 'dora_array'));
     }
 
     public function result(Request $request) {
+        dd('a');
         $all_request = $request->all();
         unset($all_request['_token']);
         //結果の配列
