@@ -7,6 +7,6 @@
     </head>
     <body>
         <h1>何切る分析</h1>
-        <button type="button" class="btn btn-primary" onclick="location.href='/nanikiru_analysis/public/nanikiru'">分析をする</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='/nanikiru'">分析をする</button>
     </body>
 </html>
