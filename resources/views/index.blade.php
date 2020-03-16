@@ -6,11 +6,7 @@
 
     </head>
     <body>
-        <h1>何切る分析a</h1>
+        <h1>何切る分析</h1>
         <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">分析をする</button>
-        <form method="POST" action="result">
-            @csrf
-        <input class="btn btn-primary" type="submit" value="送信">
-        </form>
     </body>
 </html>

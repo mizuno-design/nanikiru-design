@@ -8,7 +8,7 @@ use App\QuestionType;
 use App\Answer;
 
 //何切るコントローラー
-class nanikiruController extends Controller
+class NanikiruController extends Controller
 {
     public function test() {
         return view('test');
