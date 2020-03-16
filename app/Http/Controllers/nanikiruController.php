@@ -10,10 +10,6 @@ use App\Answer;
 //何切るコントローラー
 class NanikiruController extends Controller
 {
-    public function test() {
-        return view('test');
-    }
-
     public function index() {
         //全ての問牌姿
         $paishi_image_array = [];
