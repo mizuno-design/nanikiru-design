@@ -27,6 +27,9 @@
                 max-width: 60%;
                 height: auto;
             }
+            .submit_button {
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -72,8 +75,9 @@
                 </div>
             @endforeach
 
-            <input class="btn btn-primary" type="submit" value="送信">
-
+            <div class="submit_button">
+                <input class="btn btn-primary" type="submit" value="送信">
+            </div>
             </form>
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
