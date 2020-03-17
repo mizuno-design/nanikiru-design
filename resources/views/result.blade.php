@@ -9,13 +9,20 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <style>
-
+            .container {
+                text-align: center;
+            }
+            .chart {
+                text-align: center;
+                width: 500px;
+                height: 500px;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <h1>結果</h1>
-                <div style="width: 500px; height: 500px;">
+                <div class="chart">
                     <canvas id="myChart" width="20" height="20"></canvas>
                 <div>
             <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">戻る</button>
