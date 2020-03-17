@@ -14,12 +14,23 @@
                 margin-bottom: 10px;
             }
             .answer_area {
+                width: 110%;
                 margin-bottom: 30px;
+            }
+            .question_area img {
+                width: 4%;
+                max-width: 4%;
+                height: auto;
+            }
+            .answer_area img {
+                width: 60%;
+                max-width: 60%;
+                height: auto;
             }
         </style>
     </head>
     <body>
-        <div class="container">
+        <div>
             <h1>弱点分析何切る</h1>
             <p>何切るに答えることで、あなたの弱点が分かります！</p>
             <form method="POST" action="result">
