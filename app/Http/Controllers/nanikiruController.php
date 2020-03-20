@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Question;
 use App\QuestionType;
 use App\Answer;
+use App\Requests\NanikiruRequest;
+
 
 //何切るコントローラー
 class NanikiruController extends Controller
@@ -26,6 +28,12 @@ class NanikiruController extends Controller
             $paishi_image_array[] = $this->convertPaishi($question->question);
             //問題ドラ
             $dora_array[] = $this->convertPai($question->dora);
+            //問題巡目
+            $junme_array[] = $question->junme;
+            //問題局数
+            $kyoku_array[] = $question->kyoku;
+            //問題家
+            $tya_array[] = $question->tya;
         }
 
         $answers = Answer::with('question')->get();
@@ -42,7 +50,10 @@ class NanikiruController extends Controller
         foreach($question_types as $type) {
             $question_type_array[$type->id] = $type->description;
         }
-        return view('nanikiru', compact('questions', 'answers', 'paishi_image_array', 'answer_choice_array', 'answer_point_array', 'question_type_array', 'answer_question_type_array', 'dora_array'));
+
+        return view('nanikiru', compact('questions', 'answers', 'paishi_image_array',
+        'answer_choice_array', 'answer_point_array', 'question_type_array', 'answer_question_type_array',
+        'dora_array', 'junme_array', 'kyoku_array', 'tya_array'));
     }
 
     public function result(Request $request) {
