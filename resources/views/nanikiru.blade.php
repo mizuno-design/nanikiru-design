@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>何切る分析</title>
+        <title>Mahsis</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
@@ -34,8 +34,6 @@
     </head>
     <body>
         <div>
-            <h1>弱点分析何切る</h1>
-            <p>何切るに答えることで、あなたの弱点が分かります！</p>
             <form method="POST" action="result">
             @csrf
             <!-- 牌姿画像 -->

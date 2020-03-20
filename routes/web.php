@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('top');
 });
 
 Route::get('nanikiru','NanikiruController@index');
