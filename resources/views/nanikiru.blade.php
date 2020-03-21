@@ -9,27 +9,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <style>
-            .question_area {
-                width: 110%;
-                margin-bottom: 10px;
-            }
-            .answer_area {
-                width: 110%;
-                margin-bottom: 30px;
-            }
-            .question_area img {
-                width: 4%;
-                max-width: 4%;
-                height: auto;
-            }
-            .answer_area img {
-                width: 60%;
-                max-width: 60%;
-                height: auto;
-            }
-            .submit_button {
-                text-align: center;
-            }
         </style>
     </head>
     <body>

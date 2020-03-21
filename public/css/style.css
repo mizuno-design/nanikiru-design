@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #b7dff7;
+    text-align: center;
+}
+
+.header {
+    background-color:white;
+    text-align: center;
+}
+.footer {
+    border-top: solid 1px #b8bfd6;
+    margin-top: 320px;
+    text-align: center;
+}
+
+/* 問題レイアウト */
+.question_area {
+    width: 110%;
+    margin-bottom: 10px;
+}
+.answer_area {
+    width: 110%;
+    margin-bottom: 30px;
+}
+.question_area img {
+    width: 4%;
+    max-width: 4%;
+    height: auto;
+}
+.answer_area img {
+    max-width: 60%;
+    height: auto;
+}
+.submit_button {
+    text-align: center;
+}
