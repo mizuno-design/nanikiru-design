@@ -10,6 +10,7 @@
     </head>
     <body>
         @include('parts.header')
-        @yield('content')
+        @yield('container')
+        @include('parts.footer')
     </body>
 </html>
