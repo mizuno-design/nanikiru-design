@@ -59,8 +59,11 @@ class NanikiruController extends Controller
     public function result(Request $request) {
         $all_request = $request->all();
         unset($all_request['_token']);
-        //結果の配列
+        //結果の配列 問題タイプ毎
         $result_array = [];
+        //累計得点
+        $all_get_score = 0;
+        $all_perfect_score = 0;
 
         foreach($all_request as $key => $request) {
             $question_type = $key[-1];
@@ -72,8 +75,12 @@ class NanikiruController extends Controller
                 $result_array[$question_type]['get_score'] = $request;
                 $result_array[$question_type]['perfect_score'] = 5;
             }
+            //累計得点を計算
+            $all_get_score += $request;
+            $all_perfect_score += 5;
         }
-        return view('result', compact('result_array'));
+
+        return view('result', compact('result_array', 'all_get_score', 'all_perfect_score'));
     }
 
     /**

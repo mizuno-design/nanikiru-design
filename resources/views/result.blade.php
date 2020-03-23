@@ -26,6 +26,12 @@
                 <div class="chart">
                     <canvas id="myChart" width="20" height="20"></canvas>
                 <div>
+                <div class="suggestion_book">
+                    <p>あなたにおすすめの戦術書は・・・</p>
+                        <div class="book">
+                        </div>
+                    <p>です</p>
+                </div>
             <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">戻る</button>
         </div>
         @include('part.footer')
