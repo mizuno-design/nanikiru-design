@@ -9,14 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <style>
-            .container {
-                text-align: center;
-            }
-            .chart {
-                text-align: center;
-                width: 500px;
-                height: 500px;
-            }
+
         </style>
     </head>
     <body>
@@ -33,10 +26,12 @@
                 <div class="suggestion_book">
                     <p>あなたにおすすめの戦術書は・・・</p>
                         <div class="book">
-                            <img src="book_images/book1.jpg" width="100" height="100">
+                            <img src='book_images/<?php echo $result_book['path']; ?>' width=100 height=100><br>
+                            <?php echo $result_book['title']; ?>
                         </div>
                     <p>です</p>
                 </div>
+            <button type="button" class="btn btn-primary" onclick="location.href='description'">解答・解説を見る</button>
             <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">戻る</button>
         </div>
         @include('part.footer')

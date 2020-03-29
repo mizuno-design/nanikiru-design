@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Question;
 use App\QuestionType;
 use App\Answer;
+use App\Book;
 use App\Requests\NanikiruRequest;
-
 
 //何切るコントローラー
 class NanikiruController extends Controller
 {
+    // 問題画面
     public function index() {
         //全ての問牌姿
         $paishi_image_array = [];
@@ -37,6 +38,7 @@ class NanikiruController extends Controller
         }
 
         $answers = Answer::with('question')->get();
+
         foreach($answers as $answer) {
             //問題選択肢
             $answer_choice_array[$answer->question_id][] = $this->convertPai($answer->choice);
@@ -56,8 +58,11 @@ class NanikiruController extends Controller
         'dora_array', 'junme_array', 'kyoku_array', 'tya_array'));
     }
 
+    // 結果画面
     public function result(Request $request) {
+
         $all_request = $request->all();
+        //不要なトークンを削除
         unset($all_request['_token']);
         //結果の配列 問題タイプ毎
         $result_array = [];
@@ -80,7 +85,42 @@ class NanikiruController extends Controller
             $all_perfect_score += 5;
         }
 
-        return view('result', compact('result_array', 'all_get_score', 'all_perfect_score'));
+        $result_book = $this->suggestBookAsAllScore($all_get_score);
+
+        return view('result', compact('result_array', 'all_get_score', 'all_perfect_score', 'result_book'));
+    }
+
+    // 解答解説画面
+    public function description() {
+        // 解答解説
+        $description_array = Question::get('description');
+
+        $questions = Question::with('answer')->get();
+        foreach($questions as $question) {
+            //問題牌姿
+            $paishi_image_array[] = $this->convertPaishi($question->question);
+            //問題ドラ
+            $dora_array[] = $this->convertPai($question->dora);
+            //問題巡目
+            $junme_array[] = $question->junme;
+            //問題局数
+            $kyoku_array[] = $question->kyoku;
+            //問題家
+            $tya_array[] = $question->tya;
+        }
+
+        $answers = Answer::with('question')->get();
+
+        foreach($answers as $answer) {
+            // 問題選択肢
+            $answer_choice_array[$answer->question_id][] = $this->convertPai($answer->choice);
+            // 問題選択肢と解答ポイントの連想配列
+            $answer_info_array[$answer->question_id][$answer->choice] = $answer->point;
+        }
+
+        $answers = Answer::with('question')->get();
+
+        return view('description', compact('description_array', 'paishi_image_array', 'dora_array', 'junme_array', 'kyoku_array', 'tya_array', 'answer_choice_array', 'answer_info_array'));
     }
 
     /**
@@ -212,5 +252,20 @@ class NanikiruController extends Controller
                 break;
         }
         return false;
+    }
+
+    /**
+     * 合計得点から戦術書を提示する
+     * @param all_get_score 合計得点
+     */
+    private function suggestBookAsAllScore($all_get_score) {
+        $book = BOOK::get();
+        if($all_get_score > 72) {
+            return $book[1];
+        } else if($all_get_score > 53) {
+            return $book[0];
+        } else {
+            return $book[2];
+        }
     }
 }
