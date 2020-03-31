@@ -115,12 +115,25 @@ class NanikiruController extends Controller
             // 問題選択肢
             $answer_choice_array[$answer->question_id][] = $this->convertPai($answer->choice);
             // 問題選択肢と解答ポイントの連想配列
-            $answer_info_array[$answer->question_id][$answer->choice] = $answer->point;
+            $answer_info_array[$answer->question_id][$this->convertPai($answer->choice)] = $answer->point;
         }
 
-        $answers = Answer::with('question')->get();
+        // 選択肢を高ポイント順にソートする
+        $answer_info_sorted = [];
 
-        return view('description', compact('description_array', 'paishi_image_array', 'dora_array', 'junme_array', 'kyoku_array', 'tya_array', 'answer_choice_array', 'answer_info_array'));
+        // 選択肢を高ポイント順に並び替え
+        foreach($answer_info_array as $index => $answer_info) {
+            arsort($answer_info);
+            $answer_info_sorted[$index] = $answer_info;
+        }
+        // 連想配列をポイント順にならべた選択肢になる普通の配列に直す
+        $answer_choice_sorted = [];
+
+        foreach($answer_info_sorted as $index => $answer_info) {
+            $answer_choice_sorted[$index] = array_keys($answer_info);
+        }
+
+        return view('description', compact('description_array', 'paishi_image_array', 'dora_array', 'junme_array', 'kyoku_array', 'tya_array', 'answer_choice_array', 'answer_info_array', 'answer_info_sorted', 'answer_choice_sorted'));
     }
 
     /**

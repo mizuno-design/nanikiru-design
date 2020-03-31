@@ -34,6 +34,16 @@
                     @endforeach
                     <br>
                 </div>
+
+                <!-- 回答選択肢を作成 -->
+                <div class="answer_area">
+                    <!-- 回答番号 -->
+                    <span> A<?php echo $qa_num; ?> </span>
+                    <!-- TODO　ポイント順に並べ替える -->
+                    <img src="{{ asset("/tile_images/".$answer_choice_sorted[$qa_num][0]) }}">＞
+                    <img src="{{ asset("/tile_images/".$answer_choice_sorted[$qa_num][1]) }}">＞
+                    <img src="{{ asset("/tile_images/".$answer_choice_sorted[$qa_num][2]) }}">
+                </div>
             @endforeach
             <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">戻る</button>
         </div>
