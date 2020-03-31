@@ -39,10 +39,15 @@
                 <div class="answer_area">
                     <!-- 回答番号 -->
                     <span> A<?php echo $qa_num; ?> </span>
-                    <!-- TODO　ポイント順に並べ替える -->
+                    <!-- 正解順選択肢 -->
                     <img src="{{ asset("/tile_images/".$answer_choice_sorted[$qa_num][0]) }}">＞
                     <img src="{{ asset("/tile_images/".$answer_choice_sorted[$qa_num][1]) }}">＞
                     <img src="{{ asset("/tile_images/".$answer_choice_sorted[$qa_num][2]) }}">
+                </div>
+
+                <!-- 解説 -->
+                <div class="description_area">
+                    <p><?php echo $description_array[$i]['description'];?></p>
                 </div>
             @endforeach
             <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">戻る</button>
