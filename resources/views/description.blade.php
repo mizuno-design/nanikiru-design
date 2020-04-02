@@ -50,7 +50,7 @@
                     <p><?php echo $description_array[$i]['description'];?></p>
                 </div>
             @endforeach
-            <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">戻る</button>
+            <button type="button" class="btn btn-primary" onclick="javascript:window.history.back(-1);return false;">戻る</button>
         </div>
         @include('part.footer')
     </body>

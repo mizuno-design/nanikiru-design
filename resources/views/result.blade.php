@@ -18,10 +18,6 @@
             <h1>結果</h1>
                 <div class="chart">
                     <canvas id="myChart" width="20" height="20"></canvas>
-                <div>
-                <div>
-                    <p>得点: <?php echo $all_get_score;?></p>
-                    <p>満点: <?php echo $all_perfect_score;?></p>
                 </div>
                 <div class="suggestion_book">
                     <p>あなたにおすすめの戦術書は・・・</p>
