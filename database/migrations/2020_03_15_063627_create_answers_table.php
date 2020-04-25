@@ -19,6 +19,7 @@ class CreateAnswersTable extends Migration
             $table->string('choice',3)->comment("選択肢の牌");
             $table->integer('point',1)->comment("解答ポイント");
             $table->timestamps();
+            $table->collation = 'utf8mb4_bin';
         });
     }
 

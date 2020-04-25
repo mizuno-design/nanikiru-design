@@ -20,6 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->string('dora',4)->comment("ドラ");
 
             $table->timestamps();
+            $table->collation = 'utf8mb4_bin';
         });
     }
 
