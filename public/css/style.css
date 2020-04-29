@@ -1,30 +1,98 @@
 *{
     margin: 0;
     padding: 0;
+    color: #ffffff;
 }
 
-.container {
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans JP', sans-serif;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
     text-align: center;
+    margin: 0 auto;
+    background: linear-gradient(261deg, #4fb1d5, #a136d2);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    -o-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 28%}
+        50%{background-position:100% 73%}
+        100%{background-position:0% 28%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 28%}
+        50%{background-position:100% 73%}
+        100%{background-position:0% 28%}
+    }
+    @-o-keyframes AnimationName {
+        0%{background-position:0% 28%}
+        50%{background-position:100% 73%}
+        100%{background-position:0% 28%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 28%}
+        50%{background-position:100% 73%}
+        100%{background-position:0% 28%}
+    }
+
 }
 
 .header {
-    background-color:white;
-    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color:#333333;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    height: 90px;
+    transition: all 0.3s;
+    z-index: 1;
+}
+.header.is_scroll {
+    height: 60px;
 }
 .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
     border-top: solid 1px #b8bfd6;
-    margin-top: 320px;
+    margin-top: auto;
     text-align: center;
+    background-color: #333333;
 }
-
+.footer p{
+    margin: 0;
+}
 /* 問題レイアウト */
+.card_outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px auto;
+}
+.problem {
+    a: iku;
+}
+.question_info {
+    margin: 5px 0 10px;
+}
 .question_area {
-    width: 110%;
+    /* width: 110%; */
     margin-bottom: 10px;
 }
 .answer_area {
-    width: 110%;
-    margin-bottom: 30px;
+    /* width: 110%; */
+    /* margin-bottom: 30px; */
 }
 .question_area img {
     width: 4%;
@@ -42,6 +110,7 @@
 /* 結果画面 */
 .container {
     text-align: center;
+    padding-top: 2em;
 }
 .chart {
     width: 500px;
