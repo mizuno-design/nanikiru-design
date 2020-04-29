@@ -1,7 +1,7 @@
 :root {
-  --card-border: solid 1px #aaa;
+  --card-border: solid 2px #dddddd;
   --card-height: 200px;
-  --card-width: 300px;
+  --card-width: 700px;
   --card-innerPadding: 30px;
 }
 
@@ -9,15 +9,18 @@
 * {
   /* transition-duration: 100ms;
   transition-timing-function: ease; */
-  font-family: 'Roboto', sans-serif;
-  font-family: 'Noto Sans JP', sans-serif;
+  /* font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif; */
 
 }
 
 .card {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: var(--card-width);
-  /* height: var(--card-height); */
+  height: var(--card-height);
   margin: 16px 16px 16px 16px;
   padding: 1px 1px 4px 1px;
   border: var(--card-border);
@@ -26,12 +29,13 @@
   /* cursor: pointer; */
   vertical-align: middle;
   word-wrap: break-word;
+  background-color: transparent;
 }
 .card:hover {
-  transition-duration: 200ms;
+  transition-duration: 300ms;
   transition-timing-function: ease;
   /* background-color: rgba(241,243,245,1.0); */
-  box-shadow: 0 0 5px rgba(170,170,170,1.0);
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
 .card.selected {
   background-color: rgba(100,200,220,0.3);

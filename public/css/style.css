@@ -1,18 +1,18 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Noto Sans JP', sans-serif;
     color: #ffffff;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    font-family: 'Noto Sans JP', sans-serif;
     width: 100vw;
     height: auto;
     min-height: 100vh;
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
     background: linear-gradient(261deg, #4fb1d5, #a136d2);
     background-size: 400% 400%;
 
@@ -45,12 +45,14 @@ body {
 }
 
 .header {
-    background-color:transparent;
+    font-family: 'Montserrat', sans-serif;
+    background-color:#333333;
+    opacity: 0.9;
     display: flex;
     justify-content: center;
     align-items: center;
     /* text-align: center; */
-    height: 100px;
+    height: 90px;
     transition: all 0.3s;
     z-index: 1;
 }
@@ -58,20 +60,39 @@ body {
     height: 60px;
 }
 .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
     border-top: solid 1px #b8bfd6;
     margin-top: auto;
     text-align: center;
-    background-color: #808080;
+    background-color: #333333;
 }
-
+.footer p{
+    margin: 0;
+}
 /* 問題レイアウト */
+.card_outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px auto;
+}
+.problem {
+    a: iku;
+}
+.question_info {
+    margin: 5px 0 10px;
+}
 .question_area {
-    width: 110%;
+    /* width: 110%; */
     margin-bottom: 10px;
 }
 .answer_area {
-    width: 110%;
-    margin-bottom: 30px;
+    /* width: 110%; */
+    /* margin-bottom: 30px; */
 }
 .question_area img {
     width: 4%;
@@ -89,6 +110,7 @@ body {
 /* 結果画面 */
 .container {
     text-align: center;
+    padding-top: 2em;
 }
 .chart {
     width: 500px;
