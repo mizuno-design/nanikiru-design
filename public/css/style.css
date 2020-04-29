@@ -6,10 +6,17 @@
 .container {
     text-align: center;
 }
-
 .header {
-    background-color:white;
-    text-align: center;
+    background-color:transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    height: 100px;
+    transition: all 0.3s;
+}
+.header.is_scroll {
+    height: 60px;
 }
 .footer {
     border-top: solid 1px #b8bfd6;
