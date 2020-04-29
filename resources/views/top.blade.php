@@ -5,12 +5,14 @@
         <title>Mahsis</title>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
         <style>
         </style>
     </head>
     <body>
         @include('part.header')
-        <div class="container">
+        <div class="container top">
             <div class="front">
                 <div class="title">
                     <h2>Mahsis(マーシス)は、自身の雀力の強みと弱みを分析するサービスです。</h2>

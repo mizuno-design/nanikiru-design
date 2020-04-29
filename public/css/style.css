@@ -1,11 +1,45 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-.container {
-    text-align: center;
+body {
+background: linear-gradient(261deg, #4fb1d5, #a136d2);
+background-size: 400% 400%;
+
+-webkit-animation: AnimationName 10s ease infinite;
+-moz-animation: AnimationName 10s ease infinite;
+-o-animation: AnimationName 10s ease infinite;
+animation: AnimationName 10s ease infinite;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 28%}
+    50%{background-position:100% 73%}
+    100%{background-position:0% 28%}
 }
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 28%}
+    50%{background-position:100% 73%}
+    100%{background-position:0% 28%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 28%}
+    50%{background-position:100% 73%}
+    100%{background-position:0% 28%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 28%}
+    50%{background-position:100% 73%}
+    100%{background-position:0% 28%}
+}
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    text-align: center;
+    margin: 0;
+}
+
 .header {
     background-color:transparent;
     display: flex;
@@ -14,6 +48,7 @@
     /* text-align: center; */
     height: 100px;
     transition: all 0.3s;
+    z-index: 1;
 }
 .header.is_scroll {
     height: 60px;
