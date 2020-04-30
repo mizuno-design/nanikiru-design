@@ -1,7 +1,7 @@
 :root {
-  --card-border: solid 2px #dddddd;
-  --card-height: 200px;
-  --card-width: 700px;
+  --card-border: solid 1px #dddddd;
+  --card-height: 17em;
+  --card-width: 45em;
   --card-innerPadding: 30px;
 }
 
@@ -29,7 +29,7 @@
   /* cursor: pointer; */
   vertical-align: middle;
   word-wrap: break-word;
-  background-color: rgba(50,50,50,0.8);;
+  background-color: rgba(50,50,50,0.6);;
 }
 .card:hover {
   transition-duration: 300ms;

@@ -5,6 +5,9 @@
     --footer-height: 3em;
     --front-height: 15em;
     --description-height: 8em;
+    --button-height: 3em;
+    --paishi-pai-size: 1.8em;
+    --pai-to-char: 1.5; /*文字に対してのドラ画像倍率*/
 }
 
 *{
@@ -22,7 +25,35 @@ body {
     height: var(--body-height);
     min-height: var(--body-height);    
     margin: 0 auto;
-    background: linear-gradient(261deg, #4fb1d5, #a136d2);
+
+    background: linear-gradient(91deg, #7758b6, #a64eb4, #2b74c8, #29d0c2);
+    background-size: 800% 800%;
+
+    animation: gradationAnime 30s ease infinite;
+    -webkit-animation: gradationAnime 30s ease infinite;
+    -moz-animation: gradationAnime 30s ease infinite;
+    @keyframes gradationAnime {
+        0%{background-position:0% 55%}
+        50%{background-position:100% 46%}
+        100%{background-position:0% 55%}
+    }
+    @-webkit-keyframes gradationAnime {
+        0%{background-position:0% 55%}
+        50%{background-position:100% 46%}
+        100%{background-position:0% 55%}
+    }
+    @-moz-keyframes gradationAnime {
+        0%{background-position:0% 55%}
+        50%{background-position:100% 46%}
+        100%{background-position:0% 55%}
+    }
+
+
+
+    /* background: rgb(215,174,238);
+    background: radial-gradient(circle, rgba(215,174,238,1) 0%, rgba(83,143,214,1) 100%); */
+
+    /* background: linear-gradient(261deg, #4fb1d5, #a136d2);
     background-size: 400% 400%;
 
     -webkit-animation: AnimationName 10s ease infinite;
@@ -49,7 +80,7 @@ body {
         0%{background-position:0% 28%}
         50%{background-position:100% 73%}
         100%{background-position:0% 28%}
-    }
+    } */
 
 }
 
@@ -65,9 +96,6 @@ body {
     transition: all 0.3s;
     z-index: 1;
 }
-.header.is_scroll {
-    height: 60px;
-}
 .footer {
     height: var(--footer-height);
     display: flex;
@@ -79,7 +107,6 @@ body {
     text-align: center;
     background-color: #333333;
     opacity: 0.8;
-    margin: 0;
 }
 .footer p{
     margin: 0;
@@ -92,21 +119,24 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 3em auto;
 }
 .trans-btn {
     background-color: transparent;
+    border: none;
+    height: var(--button-height);
 }
 .btn-shine {
   color: #ffffff;
   display: inline-block;
   font-size: 1em;
   font-weight: 400;
-  line-height: 50px;
+  line-height: var(--button-height);
   width: 200px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  /* border: 1px solid transparent; */
+  border: 1px solid transparent;
   outline: 1px solid;
   /* outline-color: rgba(255, 255, 255, 0.5); */
   /* outline-offset: 0px; */
@@ -123,13 +153,24 @@ body {
 .btn-shine:focus {
     outline: 0;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.action_choices {
+    height: calc(var(--button-height) + 3em);
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    align-items: center;
+    margin: 1em auto;
+}
 
 /* top用 */
 .container.top {
     height: calc(var(--body-height) - var(--header-height) - var(--footer-height));
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
 }
 .front {
     height: var(--front-height);
@@ -185,42 +226,73 @@ to {
     font-weight: 300;
     font-size: 1.4em;
 }
-/* 問題レイアウト */
+
+/* カード用@result, description */
 .card_outer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 30px auto;
+    margin-bottom: 3em;
 }
 .problem {
-    a: iku;
+    height: var(--card-height);
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
 }
 .question_info {
-    margin: 5px 0 10px;
+    height: calc(var(--card-height) * 0.55 * 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.question_info img{
+
+}
+.paishi {
+    height: calc(var(--card-height) * 0.55 * 0.55);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--paishi-pai-size);
 }
 .question_area {
-    /* width: 110%; */
-    margin-bottom: 10px;
+    height: calc(var(--card-height) * 0.55);
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
 }
 .answer_area {
-    /* width: 110%; */
-    /* margin-bottom: 30px; */
+    height: calc(var(--card-height) * 0.30);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .question_area img {
-    width: 4%;
-    max-width: 4%;
+    width: calc(var(--pai-to-char) * 1em);
+    max-width: calc(var(--pai-to-char) * 1em);
     height: auto;
 }
 .answer_area img {
-    max-width: 60%;
+    max-width: 3em;
     height: auto;
+    margin: 0 1em;
+
 }
 .submit_button {
     text-align: center;
 }
 
-/* 結果画面 */
+/* result用 */
 .chart {
     width: 500px;
     height: 500px;
