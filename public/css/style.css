@@ -1,3 +1,12 @@
+:root {
+    --body-width: 100vw;
+    --body-height: 100vh;
+    --header-height: 6em;
+    --footer-height: 3em;
+    --front-height: 15em;
+    --description-height: 8em;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,11 +16,11 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     font-family: 'Noto Sans JP', sans-serif;
-    width: 100vw;
-    height: auto;
-    min-height: 100vh;
-    text-align: center;
+    width: var(--body-width);
+    height: var(--body-height);
+    min-height: var(--body-height);    
     margin: 0 auto;
     background: linear-gradient(261deg, #4fb1d5, #a136d2);
     background-size: 400% 400%;
@@ -45,6 +54,7 @@ body {
 }
 
 .header {
+    height: var(--header-height);
     font-family: 'Montserrat', sans-serif;
     background-color:#333333;
     opacity: 0.9;
@@ -52,7 +62,6 @@ body {
     justify-content: center;
     align-items: center;
     /* text-align: center; */
-    height: 90px;
     transition: all 0.3s;
     z-index: 1;
 }
@@ -60,6 +69,7 @@ body {
     height: 60px;
 }
 .footer {
+    height: var(--footer-height);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,9 +78,112 @@ body {
     margin-top: auto;
     text-align: center;
     background-color: #333333;
+    opacity: 0.8;
+    margin: 0;
 }
 .footer p{
     margin: 0;
+}
+
+/* 共通用 */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.trans-btn {
+    background-color: transparent;
+}
+.btn-shine {
+  color: #ffffff;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 50px;
+  width: 200px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  /* border: 1px solid transparent; */
+  outline: 1px solid;
+  /* outline-color: rgba(255, 255, 255, 0.5); */
+  /* outline-offset: 0px; */
+  text-shadow: none;
+  transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+}
+.btn-shine:hover {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.2);
+  outline-color: transparent;
+  outline-offset: 12px;
+  /* text-shadow: 2px 2px 3px #ffffff; */
+}
+.btn-shine:focus {
+    outline: 0;
+}
+
+/* top用 */
+.container.top {
+    height: calc(var(--body-height) - var(--header-height) - var(--footer-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.front {
+    height: var(--front-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.description {
+    height: var(--description-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    animation-name: fadein;
+    animation-duration: 2s;
+    /* animation-iteration-count: infinite; */
+}
+@keyframes fadein {
+from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+.description_title {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+.description_title h2 {
+    font-weight: 300;
+    font-size: 2.1em;
+}
+.description_title::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 98%;
+    height: 2px;
+    background: #ffffff;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: transform .3s;
+    margin: 0 auto;
+}
+.description_title:hover::after {
+    transform: scale(1, 1);
+}
+.description_detail p {
+    font-weight: 300;
+    font-size: 1.4em;
 }
 /* 問題レイアウト */
 .card_outer {
@@ -108,10 +221,6 @@ body {
 }
 
 /* 結果画面 */
-.container {
-    text-align: center;
-    padding-top: 2em;
-}
 .chart {
     width: 500px;
     height: 500px;

@@ -29,7 +29,7 @@
   /* cursor: pointer; */
   vertical-align: middle;
   word-wrap: break-word;
-  background-color: transparent;
+  background-color: rgba(50,50,50,0.8);;
 }
 .card:hover {
   transition-duration: 300ms;

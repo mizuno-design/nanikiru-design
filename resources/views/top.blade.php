@@ -17,14 +17,18 @@
         @include('part.header')
         <div class="container top">
             <div class="front">
-                <div class="title">
-                    <h2>Mahsis(マーシス)は、自身の雀力の強みと弱みを分析するサービスです。</h2>
-                </div>
                 <div class="description">
-                    <p>分析ボタンを押し出題される何切るに答えることで、牌効率の強みと弱みが分かります</p>
+                    <div class="description_title">
+                        <h2>Mahsis(マーシス)は、自身の雀力の強みと弱みを分析するサービスです。</h2>
+                    </div>
+                    <div class="description_detail">
+                        <p>下の分析ボタンを押し、出題される何切るに答えることで、牌効率の強みと弱みが分かります。</p>
+                    </div>
+                </div>
+                <div class="action_choices">
+                    <button type="button" class="trans-btn" onclick="location.href='nanikiru'" onfocus="this.blur();"><span class="btn-shine">分析をする</a></button>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary analysis_button" onclick="location.href='nanikiru'">分析をする</button>
         </div>
         @include('part.footer')
     </body>
