@@ -13,9 +13,9 @@
         <style>
         </style> 
     </head>
-    <body>
+    <body class="result full-screen">
         @include('part.header')
-        <div class="container">
+        <div class="container result">
             <h1>結果</h1>
                 <div class="chart">
                     <canvas id="myChart" width="20" height="20"></canvas>

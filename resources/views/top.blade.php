@@ -13,11 +13,11 @@
         <style>
         </style>
     </head>
-    <body>
+    <body class="top full-screen">
         @include('part.header')
         <div class="container top">
             <div class="front">
-                <div class="description">
+                <div class="top-description">
                     <div class="description_title">
                         <h2>Mahsis(マーシス)は、自身の雀力の強みと弱みを分析するサービスです。</h2>
                     </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="action_choices">
-                    <button type="button" class="trans-btn" onclick="location.href='nanikiru'" onfocus="this.blur();"><span class="btn-shine">分析をする</a></button>
+                    <button type="button" class="trans-btn" onclick="location.href='nanikiru'" onfocus="this.blur();"><span class="btn-shine">分析をする</span></button>
                 </div>
             </div>
         </div>

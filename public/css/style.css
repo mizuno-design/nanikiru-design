@@ -21,12 +21,33 @@ body {
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Noto Sans JP', sans-serif;
-    width: var(--body-width);
-    height: var(--body-height);
     min-height: var(--body-height);    
     margin: 0 auto;
 
-    background: linear-gradient(91deg, #7758b6, #a64eb4, #2b74c8, #29d0c2);
+background: linear-gradient(230deg, #a0c11f, #18a54f, #3193d5);
+background-size: 600% 600%;
+
+-webkit-animation: AnimationName 59s ease infinite;
+-moz-animation: AnimationName 59s ease infinite;
+animation: AnimationName 59s ease infinite;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:64% 0%}
+    50%{background-position:37% 100%}
+    100%{background-position:64% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:64% 0%}
+    50%{background-position:37% 100%}
+    100%{background-position:64% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:64% 0%}
+    50%{background-position:37% 100%}
+    100%{background-position:64% 0%}
+}
+
+    /* background: linear-gradient(91deg, #7758b6, #a64eb4, #2b74c8, #29d0c2);
     background-size: 800% 800%;
 
     animation: gradationAnime 30s ease infinite;
@@ -46,7 +67,7 @@ body {
         0%{background-position:0% 55%}
         50%{background-position:100% 46%}
         100%{background-position:0% 55%}
-    }
+    } */
 
 
 
@@ -82,6 +103,10 @@ body {
         100%{background-position:0% 28%}
     } */
 
+}
+.full-screen{
+    width: var(--body-width);
+    height: var(--body-height);
 }
 
 .header {
@@ -127,28 +152,28 @@ body {
     height: var(--button-height);
 }
 .btn-shine {
-  color: #ffffff;
-  display: inline-block;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: var(--button-height);
-  width: 200px;
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: 1px solid transparent;
-  outline: 1px solid;
-  /* outline-color: rgba(255, 255, 255, 0.5); */
-  /* outline-offset: 0px; */
-  text-shadow: none;
-  transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+    color: #ffffff;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: var(--button-height);
+    width: 200px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    outline: 1px solid;
+    /* outline-color: rgba(255, 255, 255, 0.5); */
+    /* outline-offset: 0px; */
+    text-shadow: none;
+    transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
 }
 .btn-shine:hover {
-  border-color: #ffffff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.2);
-  outline-color: transparent;
-  outline-offset: 12px;
-  /* text-shadow: 2px 2px 3px #ffffff; */
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.2);
+    outline-color: transparent;
+    outline-offset: 12px;
+    /* text-shadow: 2px 2px 3px #ffffff; */
 }
 .btn-shine:focus {
     outline: 0;
@@ -169,7 +194,8 @@ body {
 }
 
 /* top用 */
-.container.top {
+.container.top,
+.container.result {
     height: calc(var(--body-height) - var(--header-height) - var(--footer-height));
 }
 .front {
@@ -178,7 +204,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
 }
-.description {
+.top-description {
     height: var(--description-height);
     display: flex;
     flex-direction: column;
@@ -235,8 +261,11 @@ to {
     flex-direction: column;
     margin-bottom: 3em;
 }
+.card p {
+    margin: 0;
+}
 .problem {
-    height: var(--card-height);
+    /* height: var(--card-height); */
     width: 90%;
     display: flex;
     justify-content: space-around;
@@ -244,18 +273,20 @@ to {
     flex-direction: column;
 }
 .question_info {
+    width: 100%;
     height: calc(var(--card-height) * 0.55 * 0.35);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
     font-weight: 300;
+    margin-top: 0.5em;
 }
 .question_info img{
 
 }
 .paishi {
-    height: calc(var(--card-height) * 0.55 * 0.55);
+    height: calc(var(--card-height) * 0.55 * 0.40);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -277,10 +308,20 @@ to {
     justify-content: center;
     align-items: center;
 }
+.answer_area > span {
+    font-weight: 300;
+    font-size: 1.5em;
+}
 .question_area img {
     width: calc(var(--pai-to-char) * 1em);
     max-width: calc(var(--pai-to-char) * 1em);
     height: auto;
+}
+.description_area {
+    width: 100%;
+}
+.description_content {
+    margin: 1em auto;
 }
 .answer_area img {
     max-width: 3em;

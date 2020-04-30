@@ -20,11 +20,11 @@
   align-items: center;
   flex-direction: column;
   width: var(--card-width);
-  height: var(--card-height);
+  /* height: var(--card-height); */
   margin: 16px 16px 16px 16px;
   padding: 1px 1px 4px 1px;
   border: var(--card-border);
-  border-radius: 8px;
+  border-radius: 0px; /*統一感を出す(デフォルト打消)*/
   list-style: none;
   /* cursor: pointer; */
   vertical-align: middle;

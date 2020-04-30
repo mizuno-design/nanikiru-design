@@ -13,7 +13,7 @@
         <style>
         </style>
     </head>
-    <body>
+    <body class="nanikiru">
         @include('part.header')
         <div class="container">
             <form method="POST" action="result">
@@ -43,6 +43,7 @@
                                         <br>
                                     </div>
                                 </div>
+
                                 <!-- 回答選択肢を作成 -->
                                 <div class="answer_area">
                                     <!-- 回答番号 -->
