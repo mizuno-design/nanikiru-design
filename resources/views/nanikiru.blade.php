@@ -13,59 +13,66 @@
         <style>
         </style>
     </head>
-    <body>
+    <body class="nanikiru">
         @include('part.header')
         <div class="container">
-            <form class="card_outer" method="POST" action="result">
-            @csrf
-            <!-- 牌姿画像 -->
-            @foreach($paishi_image_array as $i => $paishi_image)
-                <?php $qa_num = $i+1; ?>
-                <div class="card">
-                    <div class="problem">
-                        <div class="question_area">
-                            <div class="question_info">
-                                <!-- 問題番号 -->
-                                <span> Q<?php echo $qa_num; ?> </span>
-                                <?php echo $kyoku_array[$i]; ?>
-                                <?php echo $tya_array[$i]; ?>家
-                                <?php echo $junme_array[$i]; ?>巡目
-                                ドラ
-                                <img src="{{ asset("/tile_images/$dora_array[$i]") }}">
+            <form method="POST" action="result">
+                <div class="card_outer">
+                    @csrf
+                    <!-- 牌姿画像 -->
+                    @foreach($paishi_image_array as $i => $paishi_image)
+                        <?php $qa_num = $i+1; ?>
+                        <div class="card">
+                            <div class="problem">
+                                <div class="question_area">
+                                    <div class="question_info">
+                                        <!-- 問題番号 -->
+                                        <span> Q<?php echo $qa_num; ?>.&nbsp;&nbsp;</span>
+                                        <?php echo $kyoku_array[$i]; ?>
+                                        <?php echo $tya_array[$i]; ?>家
+                                        <?php echo $junme_array[$i]; ?>巡目
+                                        ドラ
+                                        <img src="{{ asset("/tile_images/$dora_array[$i]") }}">
+                                    </div>
+
+                                    <!-- 牌姿を作成 -->
+                                    <div class="paishi">
+                                        @foreach($paishi_image as $pai_image)
+                                            <img src="{{ asset("/tile_images/$pai_image") }}">
+                                        @endforeach
+                                        <br>
+                                    </div>
+                                </div>
+
+                                <!-- 回答選択肢を作成 -->
+                                <div class="answer_area">
+                                    <!-- 回答番号 -->
+                                    <!-- <span> A<?php echo $qa_num; ?> </span> -->
+
+                                    <!-- TODO テスト簡易化のため初期値を設定 Deploy時に消す -->
+                                    <input id=<?php echo "question0_$qa_num" ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>" value="<?php echo $answer_point_array[$qa_num][0]; ?>" checked required>
+                                    <label for=<?php echo "question0_$qa_num"; ?>>
+                                        <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][0]) }}">
+                                    </label>
+
+                                    <input id=<?php echo "question1_$qa_num"; ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][1]; ?>" value="<?php echo $answer_point_array[$qa_num][1]; ?>">
+                                    <label for=<?php echo "question1_$qa_num"; ?>>
+                                        <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][1]) }}">
+                                    </label>
+
+                                    <input id=<?php echo "question2_$qa_num"; ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][2];?>" value="<?php echo $answer_point_array[$qa_num][2]; ?>">
+                                    <label for=<?php echo "question2_$qa_num"; ?>>
+                                        <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][2]) }}">
+                                    </label>
+                                </div>
                             </div>
-
-                            <!-- 牌姿を作成 -->
-                            @foreach($paishi_image as $pai_image)
-                                <img src="{{ asset("/tile_images/$pai_image") }}">
-                            @endforeach
-                            <br>
                         </div>
-                        <!-- 回答選択肢を作成 -->
-                        <div class="answer_area">
-                            <!-- 回答番号 -->
-                            <span> A<?php echo $qa_num; ?> </span>
-
-                            <!-- TODO テスト簡易化のため初期値を設定 Deploy時に消す -->
-                            <input id=<?php echo "question0_$qa_num" ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>" value="<?php echo $answer_point_array[$qa_num][0]; ?>" checked required>
-                            <label for=<?php echo "question0_$qa_num"; ?>>
-                                <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][0]) }}">
-                            </label>
-
-                            <input id=<?php echo "question1_$qa_num"; ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][1]; ?>" value="<?php echo $answer_point_array[$qa_num][1]; ?>">
-                            <label for=<?php echo "question1_$qa_num"; ?>>
-                                <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][1]) }}">
-                            </label>
-
-                            <input id=<?php echo "question2_$qa_num"; ?> type="radio" name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][2];?>" value="<?php echo $answer_point_array[$qa_num][2]; ?>">
-                            <label for=<?php echo "question2_$qa_num"; ?>>
-                                <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][2]) }}">
-                            </label>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-            @endforeach
-            <div class="submit_button">
-                <input class="btn btn-primary" type="submit" value="送信">
+            <div class="action_choices">
+                <div class="btn-shine">
+                    <input class="trans-btn" type="submit" value="回答する" onfocus="this.blur();">
+                </div>
             </div>
             </form>
         </div>
