@@ -15,21 +15,30 @@
     </head>
     <body class="result full-screen">
         @include('part.header')
+        <div class="container">
+        </div>
         <div class="container result">
-            <h1>結果</h1>
-                <div class="chart">
-                    <canvas id="myChart" width="20" height="20"></canvas>
-                </div>
-                <div class="suggestion_book">
-                    <p>あなたにおすすめの戦術書は・・・</p>
-                        <div class="book">
-                            <img src='book_images/<?php echo $result_book['path']; ?>' width=100 height=100><br>
-                            <?php echo $result_book['title']; ?>
+                <div class="result-content">
+                    <div class="card white chart">
+                        <div class="chart">
+                            <canvas id="myChart" width="20" height="20"></canvas>
                         </div>
-                    <p>です</p>
+                    </div>
+                    <div class="card">
+                        <div class="suggestion">
+                            <p>あなたにおすすめの戦術書は・・・</p>
+                                <div class="book">
+                                    <img src='book_images/<?php echo $result_book['path']; ?>' width=100 height=100><br>
+                                    <p><?php echo $result_book['title']; ?><p>
+                                </div>
+                            <!-- <p>です</p> -->
+                        </div>
+                    </div>
                 </div>
-            <button type="button" class="btn btn-primary" onclick="location.href='description'">解答・解説を見る</button>
-            <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">戻る</button>
+            <div class="action_choices">
+                <button type="button" class="trans-btn" onclick="location.href='nanikiru'" onfocus="this.blur();"><span class="btn-shine">戻る</span></button>
+                <button type="button" class="trans-btn" onclick="location.href='description'" onfocus="this.blur();"><span class="btn-shine">解答・解説を見る</span></button>
+            </div>
         </div>
         @include('part.footer')
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -8,6 +8,8 @@
     --button-height: 3em;
     --paishi-pai-size: 1.8em;
     --pai-to-char: 1.5; /*文字に対してのドラ画像倍率*/
+    --result-parts-width: 30em;
+    --result-parts-height: 35em;
 }
 
 *{
@@ -120,6 +122,9 @@ animation: AnimationName 59s ease infinite;
     /* text-align: center; */
     transition: all 0.3s;
     z-index: 1;
+    box-shadow: 0px 6px 3px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 6px 3px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 6px 3px rgba(0,0,0,0.3);
 }
 .footer {
     height: var(--footer-height);
@@ -145,11 +150,13 @@ animation: AnimationName 59s ease infinite;
     align-items: center;
     text-align: center;
     margin: 3em auto;
+    max-width: var(--body-width);
 }
 .trans-btn {
     background-color: transparent;
     border: none;
     height: var(--button-height);
+    margin: 0 3em;
 }
 .btn-shine {
     color: #ffffff;
@@ -183,6 +190,7 @@ animation: AnimationName 59s ease infinite;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    /* width: var(--body-width); */
 }
 .action_choices {
     height: calc(var(--button-height) + 3em);
@@ -197,6 +205,8 @@ animation: AnimationName 59s ease infinite;
 .container.top,
 .container.result {
     height: calc(var(--body-height) - var(--header-height) - var(--footer-height));
+    width: 100vw;
+    margin: 0 auto;
 }
 .front {
     height: var(--front-height);
@@ -334,8 +344,51 @@ to {
 }
 
 /* result用 */
+.result-content{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 .chart {
-    width: 500px;
-    height: 500px;
-    margin: 0 auto;
+    width: var(--result-parts-width);
+    height: var(--result-parts-height);
+    /* margin: 0 auto; */
+    /* z-index: 1; */
+}
+.card.chart {
+    position: relative;
+}
+.chartjs-render-monitor {
+    position: absolute;
+    bottom: 1em;
+}
+.suggestion {
+    width: 90%;
+    /* max-width: var(--result-parts-width); */
+    height: var(--result-parts-height);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.suggestion p {
+    font-size: 1.7em;
+    font-weight: 300;
+}
+.suggestion > p {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.book {
+    width: 100%;
+    height: calc(var(--result-parts-height) * 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.book > img {
+    width: calc(var(--result-parts-width) * 0.6);
+    height: calc(var(--result-parts-height) * 0.6);
 }
