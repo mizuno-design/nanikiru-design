@@ -1,7 +1,7 @@
 :root {
-  --card-border: solid 2px #dddddd;
-  --card-height: 200px;
-  --card-width: 700px;
+  --card-border: solid 1px #dddddd;
+  --card-height: 17em;
+  --card-width: 45em;
   --card-innerPadding: 30px;
 }
 
@@ -20,16 +20,19 @@
   align-items: center;
   flex-direction: column;
   width: var(--card-width);
-  height: var(--card-height);
+  /* height: var(--card-height); */
   margin: 16px 16px 16px 16px;
   padding: 1px 1px 4px 1px;
-  border: var(--card-border);
-  border-radius: 8px;
+  /* border: var(--card-border); */
+  border-radius: 0.5em;
   list-style: none;
   /* cursor: pointer; */
   vertical-align: middle;
   word-wrap: break-word;
-  background-color: transparent;
+  background-color: rgba(50,50,50,0.65);
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
 }
 .card:hover {
   transition-duration: 300ms;
@@ -39,6 +42,15 @@
 }
 .card.selected {
   background-color: rgba(100,200,220,0.3);
+}
+.card.white {
+  background-color: rgba(255,255,255,1.0);
+}
+.card.white:hover {
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  /* background-color: rgba(241,243,245,1.0); */
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 .card-title {
   width: calc(var(--card-width) - var(--card-innerPadding) * 2);
