@@ -90,7 +90,9 @@
                         max: 15,
                         min: 0,
                     }
-                }
+                },
+                // responsive: true,
+                maintainAspectRatio: false
             }
         });
 
