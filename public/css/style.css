@@ -9,8 +9,8 @@
     --paishi-pai-size: 1.8em;
     --pai-to-char: 1.5;
     /*文字に対してのドラ画像倍率*/
-    --result-parts-width: 30em;
-    --result-parts-height: 35em;
+    --result-parts-width: 70%;
+    --result-parts-height: 100%;
 }
 
 * {
@@ -21,28 +21,27 @@
 
 body {
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Noto Sans JP', sans-serif;
     min-height: var(--body-height);
     margin: 0 auto;
 
-    background: linear-gradient(230deg, #a0c11f, #18a54f, #3193d5);
+    background: linear-gradient(270deg, #3572c6, #7648d4);
     background-size: 600% 600%;
+    animation: AnimationName 3s ease infinite;
 
-    animation-name: bganime;
-    animation-duration: 30s;
+
+    /* animation-name: bganime;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
-    animation-timing-function: ease;
+    animation-timing-function: ease; */
 }
-@keyframes bganime {
-    0% {
-        background-position:64% 0%;
-    } 50% {
-        background-position:37% 100%;
-    } 100% {
-        background-position:64% 0%;
-    }
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 .full-screen {
@@ -337,9 +336,11 @@ body {
 
 /* result用 */
 .result-content {
-    width: 90%;
+    width: calc(var(--body-width) * 0.90);
+    height: calc(var(--body-height) * 0.50);
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
 
@@ -356,31 +357,35 @@ body {
 
 .chartjs-render-monitor {
     position: absolute;
-    bottom: 1em;
+    bottom: 0;
+    height: calc(var(--body-height) * 0.33);
+    width: calc(var(--body-width) * 0.17);
 }
 
 .suggestion {
     width: 90%;
     /* max-width: var(--result-parts-width); */
-    height: var(--result-parts-height);
+    height: calc(var(--body-height) * 0.5);
+    /* height: var(--result-parts-height); */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    /* overflow: hidden; */
 }
 
 .suggestion p {
+    font-size: 2.0em;
+    font-weight: 300;
+}
+
+.suggestion > p {
     font-size: 1.7em;
     font-weight: 300;
 }
 
-.suggestion>p {
-    font-size: 1.5em;
-    font-weight: 300;
-}
-
 .book {
-    width: 100%;
+    width: auto;
     height: calc(var(--result-parts-height) * 0.8);
     display: flex;
     justify-content: center;
@@ -389,6 +394,6 @@ body {
 }
 
 .book>img {
-    width: calc(var(--result-parts-width) * 0.6);
-    height: calc(var(--result-parts-height) * 0.6);
+    width: calc(var(--body-width) * 0.17);
+    height: calc(var(--body-height) * 0.33);
 }
