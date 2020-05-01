@@ -434,15 +434,15 @@ body {
 
 /* 選択された画像を囲む */
 .answer_area input:checked+label img {
-    border: 1px solid #999999;
-    background: #999999;
+    box-sizing: border-box;
+    border: 0.17em solid rgba(79, 255, 88, 0.8);
     border-radius: 3px;
-    box-shadow: 3px 3px 3px #cccccc;
+
 }
 
 /* 選択されていない画像を暗くする */
 .answer_area input:not(:checked)+label img {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 
