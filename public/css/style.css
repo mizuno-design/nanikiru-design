@@ -192,7 +192,7 @@ animation: AnimationName 59s ease infinite;
     align-items: center;
     /* width: var(--body-width); */
 }
-.action_choices {
+.action-choices {
     height: calc(var(--button-height) + 3em);
     display: flex;
     /* flex-direction: column; */
@@ -233,16 +233,16 @@ to {
     transform: translateY(0);
 }
 }
-.description_title {
+.description-title {
     position: relative;
     display: inline-block;
     text-decoration: none;
 }
-.description_title h2 {
+.description-title h2 {
     font-weight: 300;
     font-size: 2.1em;
 }
-.description_title::after {
+.description-title::after {
     position: absolute;
     bottom: -4px;
     left: 0;
@@ -254,11 +254,16 @@ to {
     transform-origin: left top;
     transition: transform .3s;
     margin: 0 auto;
-}
-.description_title:hover::after {
     transform: scale(1, 1);
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-delay: 0s;
+    transition-timing-function: ease;
 }
-.description_detail p {
+.description-title:hover::after {
+
+}
+.description-detail p {
     font-weight: 300;
     font-size: 1.4em;
 }

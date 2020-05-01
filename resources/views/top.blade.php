@@ -18,14 +18,14 @@
         <div class="container top">
             <div class="front">
                 <div class="top-description">
-                    <div class="description_title">
+                    <div class="description-title">
                         <h2>Mahsis(マーシス)は、自身の雀力の強みと弱みを分析するサービスです。</h2>
                     </div>
-                    <div class="description_detail">
+                    <div class="description-detail">
                         <p>下の分析ボタンを押し、出題される何切るに答えることで、牌効率の強みと弱みが分かります。</p>
                     </div>
                 </div>
-                <div class="action_choices">
+                <div class="action-choices">
                     <button type="button" class="trans-btn" onclick="location.href='nanikiru'" onfocus="this.blur();"><span class="btn-shine">分析をする</span></button>
                 </div>
             </div>
