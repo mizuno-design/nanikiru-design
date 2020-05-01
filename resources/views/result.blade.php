@@ -18,8 +18,6 @@
 
 <body class="result full-screen">
     @include('part.header')
-    <div class="container">
-    </div>
     <div class="container result">
         <div class="result-content">
             <div class="card white chart">
@@ -44,9 +42,6 @@
             <button type="button" class="trans-btn" onclick="location.href='description'" onfocus="this.blur();"><span
                     class="btn-shine">解答・解説を見る</span></button>
         </div>
-    </div>
-    <button type="button" class="btn btn-primary" onclick="location.href='nanikiru'">戻る</button>
-    <button type="button" class="btn btn-primary" onclick="location.href='description'">解答・解説を見る</button>
     </div>
     @include('part.footer')
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
