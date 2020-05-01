@@ -432,17 +432,51 @@ body {
     cursor: pointer;
 }
 
+.parent {
+    position: relative;
+}
+
+/* .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0.5;
+    height: 4em !important;
+    opacity: 0.4 !important;
+} */
+
 /* 選択された画像を囲む */
 .answer_area input:checked+label img {
-    border: 1px solid #999999;
-    background: #999999;
+    box-sizing: border-box;
+    border: 0.14em solid rgba(255, 0, 0, 0.8);
     border-radius: 3px;
-    box-shadow: 3px 3px 3px #cccccc;
+
 }
+
+.answer_area input:checked+label .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0.5;
+    height: 4em;
+    opacity: 0.4;
+}
+
+.answer_area input:not(:checked)+label .overlay {
+    display: none;
+}
+
+.answer_area input:not(:checked)+label img {
+    opacity: 1;
+}
+
+
 
 /* 選択されていない画像を暗くする */
 .answer_area input:not(:checked)+label img {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 
