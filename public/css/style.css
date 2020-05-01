@@ -7,12 +7,13 @@
     --description-height: 8em;
     --button-height: 3em;
     --paishi-pai-size: 1.8em;
-    --pai-to-char: 1.5; /*文字に対してのドラ画像倍率*/
+    --pai-to-char: 1.5;
+    /*文字に対してのドラ画像倍率*/
     --result-parts-width: 30em;
     --result-parts-height: 35em;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     color: #ffffff;
@@ -23,7 +24,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Noto Sans JP', sans-serif;
-    min-height: var(--body-height);    
+    min-height: var(--body-height);
     margin: 0 auto;
 
     background: linear-gradient(230deg, #a0c11f, #18a54f, #3193d5);
@@ -43,7 +44,8 @@ body {
         background-position:64% 0%;
     }
 }
-.full-screen{
+
+.full-screen {
     width: var(--body-width);
     height: var(--body-height);
 }
@@ -51,7 +53,7 @@ body {
 .header {
     height: var(--header-height);
     font-family: 'Montserrat', sans-serif;
-    background-color:#333333;
+    background-color: #333333;
     opacity: 0.9;
     display: flex;
     justify-content: center;
@@ -59,10 +61,11 @@ body {
     /* text-align: center; */
     transition: all 0.3s;
     z-index: 1;
-    box-shadow: 0px 6px 3px rgba(0,0,0,0.3);
-    -webkit-box-shadow: 0px 6px 3px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px 6px 3px rgba(0,0,0,0.3);
+    box-shadow: 0px 6px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 6px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 6px 3px rgba(0, 0, 0, 0.3);
 }
+
 .footer {
     height: var(--footer-height);
     display: flex;
@@ -75,7 +78,8 @@ body {
     background-color: #333333;
     opacity: 0.8;
 }
-.footer p{
+
+.footer p {
     margin: 0;
 }
 
@@ -89,12 +93,14 @@ body {
     margin: 3em auto;
     max-width: var(--body-width);
 }
+
 .trans-btn {
     background-color: transparent;
     border: none;
     height: var(--button-height);
     margin: 0 3em;
 }
+
 .btn-shine {
     color: #ffffff;
     display: inline-block;
@@ -112,6 +118,7 @@ body {
     text-shadow: none;
     transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
 }
+
 .btn-shine:hover {
     border-color: #ffffff;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.2);
@@ -119,9 +126,11 @@ body {
     outline-offset: 12px;
     /* text-shadow: 2px 2px 3px #ffffff; */
 }
+
 .btn-shine:focus {
     outline: 0;
 }
+
 .container {
     display: flex;
     flex-direction: column;
@@ -129,6 +138,7 @@ body {
     align-items: center;
     /* width: var(--body-width); */
 }
+
 .action-choices {
     height: calc(var(--button-height) + 3em);
     display: flex;
@@ -145,12 +155,14 @@ body {
     width: 100vw;
     margin: 0 auto;
 }
+
 .front {
     height: var(--front-height);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
+
 .top-description {
     height: var(--description-height);
     display: flex;
@@ -160,25 +172,30 @@ body {
     animation-duration: 2s;
     /* animation-iteration-count: infinite; */
 }
+
 @keyframes fadein {
-from {
-    opacity: 0;
-    transform: translateY(20px);
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-to {
-    opacity: 1;
-    transform: translateY(0);
-}
-}
+
 .description-title {
     position: relative;
     display: inline-block;
     text-decoration: none;
 }
+
 .description-title h2 {
     font-weight: 300;
     font-size: 2.1em;
 }
+
 .description-title::after {
     position: absolute;
     bottom: -4px;
@@ -214,9 +231,11 @@ to {
     flex-direction: column;
     margin-bottom: 3em;
 }
+
 .card p {
     margin: 0;
 }
+
 .problem {
     /* height: var(--card-height); */
     width: 90%;
@@ -225,6 +244,7 @@ to {
     align-items: center;
     flex-direction: column;
 }
+
 .question_info {
     width: 100%;
     height: calc(var(--card-height) * 0.55 * 0.35);
@@ -235,9 +255,9 @@ to {
     font-weight: 300;
     margin-top: 0.5em;
 }
-.question_info img{
 
-}
+.question_info img {}
+
 .paishi {
     height: calc(var(--card-height) * 0.55 * 0.40);
     width: 100%;
@@ -246,6 +266,7 @@ to {
     align-items: center;
     font-size: var(--paishi-pai-size);
 }
+
 .question_area {
     height: calc(var(--card-height) * 0.55);
     width: 100%;
@@ -254,6 +275,7 @@ to {
     align-items: center;
     flex-direction: column;
 }
+
 .answer_area {
     height: calc(var(--card-height) * 0.30);
     width: 100%;
@@ -261,51 +283,82 @@ to {
     justify-content: center;
     align-items: center;
 }
-.answer_area > span {
+
+.answer_area>span {
     font-weight: 300;
     font-size: 1.5em;
 }
+
 .question_area img {
     width: calc(var(--pai-to-char) * 1em);
     max-width: calc(var(--pai-to-char) * 1em);
     height: auto;
 }
+
+
+/* radioボタン消す */
+.answer_area input[type="radio"] {
+    display: none;
+}
+
+
 .description_area {
     width: 100%;
 }
+
 .description_content {
     margin: 1em auto;
 }
+
 .answer_area img {
     max-width: 3em;
-    height: auto;
     margin: 0 1em;
+    height: auto;
+    cursor: pointer;
+}
+
+/* 選択された画像を囲む */
+.answer_area input:checked+label img {
+    box-sizing: border-box;
+    border: 0.17em solid rgba(79, 255, 88, 0.8);
+    border-radius: 3px;
 
 }
+
+/* 選択されていない画像を暗くする */
+.answer_area input:not(:checked)+label img {
+    opacity: 0.9;
+}
+
+
 .submit_button {
     text-align: center;
 }
 
 /* result用 */
-.result-content{
+.result-content {
     width: 90%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
+
 .chart {
     width: var(--result-parts-width);
     height: var(--result-parts-height);
     /* margin: 0 auto; */
     /* z-index: 1; */
 }
+
 .card.chart {
     position: relative;
 }
+
 .chartjs-render-monitor {
     position: absolute;
     bottom: 1em;
 }
+
 .suggestion {
     width: 90%;
     /* max-width: var(--result-parts-width); */
@@ -315,14 +368,17 @@ to {
     align-items: center;
     flex-direction: column;
 }
+
 .suggestion p {
     font-size: 1.7em;
     font-weight: 300;
 }
-.suggestion > p {
+
+.suggestion>p {
     font-size: 1.5em;
     font-weight: 300;
 }
+
 .book {
     width: 100%;
     height: calc(var(--result-parts-height) * 0.8);
@@ -331,7 +387,8 @@ to {
     align-items: center;
     flex-direction: column;
 }
-.book > img {
+
+.book>img {
     width: calc(var(--result-parts-width) * 0.6);
     height: calc(var(--result-parts-height) * 0.6);
 }
