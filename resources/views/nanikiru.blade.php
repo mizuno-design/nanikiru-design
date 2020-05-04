@@ -19,7 +19,7 @@
 <body class="nanikiru">
     @include('part.header')
     <div class="container">
-        <form method="POST" action="result">
+        <form method="POST" action="result" name="nanikiruform">
             <div class="card_outer">
                 @csrf
                 <!-- 牌姿画像 -->
@@ -55,22 +55,23 @@
                             <!-- TODO テスト簡易化のため初期値を設定 Deploy時に消す -->
                             <input id=<?php echo "question0_$qa_num" ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>"
-                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" checked required>
+                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" onclick="formcount();">
                             <!-- checked required -->
+                            <!-- JSにてカウント -->
                             <label for=<?php echo "question0_$qa_num"; ?>>
                                 <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][0]) }}">
                             </label>
 
                             <input id=<?php echo "question1_$qa_num"; ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][1]; ?>"
-                                value="<?php echo $answer_point_array[$qa_num][1]; ?>">
+                                value="<?php echo $answer_point_array[$qa_num][1]; ?>" onclick="formcount();">
                             <label for=<?php echo "question1_$qa_num"; ?>>
                                 <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][1]) }}">
                             </label>
 
                             <input id=<?php echo "question2_$qa_num"; ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][2];?>"
-                                value="<?php echo $answer_point_array[$qa_num][2]; ?>">
+                                value="<?php echo $answer_point_array[$qa_num][2]; ?>" onclick="formcount();">
                             <label for=<?php echo "question2_$qa_num"; ?>>
                                 <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][2]) }}">
                             </label>
@@ -97,6 +98,19 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script>
+        function formcount() {
+            var count = 0;
+
+            //　formのinputの数だけ判定を繰り返す（submitはカウントしない-1）
+            for (var i = 0; i < document.nanikiruform.length - 1; i++) {
+                // i番目のラジオボタンがチェックされているかを判定
+                if (document.nanikiruform.elements[i].checked) {
+                    count += 1;
+                }
+            }
+            console.log(count)
+        }
+
     </script>
 </body>
 
