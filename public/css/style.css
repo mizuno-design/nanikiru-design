@@ -23,14 +23,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     min-height: var(--body-height);
     margin: 0 auto;
 
     background: linear-gradient(270deg, #3572c6, #7648d4);
     background-size: 600% 600%;
     animation: AnimationName 10s ease infinite;
-
 
     /* animation-name: bganime;
     animation-duration: 10s;
@@ -40,15 +39,15 @@ body {
 
 @keyframes AnimationName {
     0% {
-        background-position: 0% 50%
+        background-position: 0% 50%;
     }
 
     50% {
-        background-position: 100% 50%
+        background-position: 100% 50%;
     }
 
     100% {
-        background-position: 0% 50%
+        background-position: 0% 50%;
     }
 }
 
@@ -59,7 +58,7 @@ body {
 
 .header {
     height: var(--header-height);
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     background-color: #333333;
     opacity: 0.9;
     display: flex;
@@ -78,7 +77,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     border-top: solid 1px #b8bfd6;
     margin-top: auto;
     text-align: center;
@@ -128,7 +127,8 @@ body {
 
 .btn-shine:hover {
     border-color: #ffffff;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
+        0 0 10px rgba(255, 255, 255, 0.2);
     outline-color: transparent;
     outline-offset: 12px;
     /* text-shadow: 2px 2px 3px #ffffff; */
@@ -158,7 +158,9 @@ body {
 /* top用 */
 .container.top,
 .container.result {
-    height: calc(var(--body-height) - var(--header-height) - var(--footer-height));
+    height: calc(
+        var(--body-height) - var(--header-height) - var(--footer-height)
+    );
     width: 100vw;
     margin: 0 auto;
 }
@@ -207,7 +209,7 @@ body {
     position: absolute;
     bottom: -4px;
     left: 0;
-    content: '';
+    content: "";
     width: 98%;
     height: 2px;
     background: #ffffff;
@@ -218,7 +220,7 @@ body {
 
 @keyframes slide {
     0% {
-        transform: scale(0.1)
+        transform: scale(0.1);
     }
 
     100% {
@@ -268,10 +270,11 @@ body {
     margin-top: 0.5em;
 }
 
-.question_info img {}
+.question_info img {
+}
 
 .paishi {
-    height: calc(var(--card-height) * 0.55 * 0.40);
+    height: calc(var(--card-height) * 0.55 * 0.4);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -289,14 +292,14 @@ body {
 }
 
 .answer_area {
-    height: calc(var(--card-height) * 0.30);
+    height: calc(var(--card-height) * 0.3);
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.answer_area>span {
+.answer_area > span {
     font-weight: 300;
     font-size: 1.5em;
 }
@@ -307,12 +310,10 @@ body {
     height: auto;
 }
 
-
 /* radioボタン消す */
 .answer_area input[type="radio"] {
     display: none;
 }
-
 
 .description_area {
     width: 100%;
@@ -329,18 +330,27 @@ body {
     cursor: pointer;
 }
 
+progress {
+    width: 100%;
+}
+
+#container {
+    margin: 20px;
+    width: 400px;
+    height: 8px;
+}
+
 /* 選択された画像を囲む */
-.answer_area input:checked+label img {
+.answer_area input:checked + label img {
     box-sizing: border-box;
     border: 0.17em solid rgba(255, 0, 0, 0.979);
     border-radius: 3px;
 }
 
 /* 選択されていない画像を暗くする */
-.answer_area input:not(:checked)+label img {
+.answer_area input:not(:checked) + label img {
     opacity: 0.9;
 }
-
 
 .submit_button {
     text-align: center;
@@ -348,8 +358,8 @@ body {
 
 /* result用 */
 .result-content {
-    width: calc(var(--body-width) * 0.90);
-    height: calc(var(--body-height) * 0.50);
+    width: calc(var(--body-width) * 0.9);
+    height: calc(var(--body-height) * 0.5);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -387,11 +397,11 @@ body {
 }
 
 .suggestion p {
-    font-size: 2.0em;
+    font-size: 2em;
     font-weight: 300;
 }
 
-.suggestion>p {
+.suggestion > p {
     font-size: 1.7em;
     font-weight: 300;
 }
@@ -405,7 +415,7 @@ body {
     flex-direction: column;
 }
 
-.book>img {
+.book > img {
     width: calc(var(--body-width) * 0.17);
     height: calc(var(--body-height) * 0.33);
 }
