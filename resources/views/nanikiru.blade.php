@@ -19,7 +19,8 @@
 <body class="nanikiru">
     @include('part.header')
      <div class="progress">
-         <div id="nanikiruProgress" class="progress-bar progress-bar-animated" role="progressbar"></div>
+         <div id="nanikiruProgress" class="progress-bar progress-bar-animated" role="progressbar" aria-valuemin="0">
+         </div>
      </div>
     <div class="container">
         <form method="POST" action="result" name="nanikiruform">
@@ -120,7 +121,7 @@
             var totalformCount = (document.nanikiruform.length - 2) / 3;
             // 回答している割合
             var answerRate = (count / totalformCount) * 100;
-            console.log(answerRate);
+            //  回答している割合でプログレスバー更新
             document.getElementById("nanikiruProgress").style.width = answerRate + "%";
             // プログレスバー内の文字出力
             var progressText = count + "/" +totalformCount;
