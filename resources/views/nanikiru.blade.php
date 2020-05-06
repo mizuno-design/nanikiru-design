@@ -18,8 +18,12 @@
 
 <body class="nanikiru">
     @include('part.header')
+     <div class="progress">
+         <div id="nanikiruProgress" class="progress-bar progress-bar-animated" role="progressbar" aria-valuemin="0">
+         </div>
+     </div>
     <div class="container">
-        <form method="POST" action="result">
+        <form method="POST" action="result" name="nanikiruform">
             <div class="card_outer">
                 @csrf
                 <!-- 牌姿画像 -->
@@ -55,22 +59,23 @@
                             <!-- TODO テスト簡易化のため初期値を設定 Deploy時に消す -->
                             <input id=<?php echo "question0_$qa_num" ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>"
-                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" checked required>
+                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" onclick="formcount();">
                             <!-- checked required -->
+                            <!-- JSにてカウント -->
                             <label for=<?php echo "question0_$qa_num"; ?>>
                                 <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][0]) }}">
                             </label>
 
                             <input id=<?php echo "question1_$qa_num"; ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][1]; ?>"
-                                value="<?php echo $answer_point_array[$qa_num][1]; ?>">
+                                value="<?php echo $answer_point_array[$qa_num][1]; ?>" onclick="formcount();">
                             <label for=<?php echo "question1_$qa_num"; ?>>
                                 <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][1]) }}">
                             </label>
 
                             <input id=<?php echo "question2_$qa_num"; ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][2];?>"
-                                value="<?php echo $answer_point_array[$qa_num][2]; ?>">
+                                value="<?php echo $answer_point_array[$qa_num][2]; ?>" onclick="formcount();">
                             <label for=<?php echo "question2_$qa_num"; ?>>
                                 <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][2]) }}">
                             </label>
@@ -97,7 +102,35 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script>
+        function formcount() {
+            var count = 0;
+
+            //　formのinputの数だけ判定を繰り返す（submitはカウントしない-1）
+            for (var i = 0; i < document.nanikiruform.length - 1; i++) {
+                // i番目のラジオボタンがチェックされているかを判定
+                if (document.nanikiruform.elements[i].checked) {
+                    count += 1;
+                }
+            }
+            updateProgress(count);
+        }
+
+        // プログレスバーを更新する
+        function updateProgress(count) {
+            // inputの数を取得してformの数を数える
+            var totalformCount = (document.nanikiruform.length - 2) / 3;
+            // 回答している割合
+            var answerRate = (count / totalformCount) * 100;
+            //  回答している割合でプログレスバー更新
+            document.getElementById("nanikiruProgress").style.width = answerRate + "%";
+            // プログレスバー内の文字出力
+            var progressText = count + "/" +totalformCount;
+            document.getElementById("nanikiruProgress").innerText = progressText;
+            console.log("progress:", count);
+        }
+
     </script>
+
 </body>
 
 </html>
