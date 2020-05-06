@@ -21,7 +21,7 @@
   flex-direction: column;
   width: var(--card-width);
   /* height: var(--card-height); */
-  margin: 20px;
+  margin: 1em;
   padding: 1px 1px 4px 1px;
   /* border: var(--card-border); */
   border-radius: 0.5em;
