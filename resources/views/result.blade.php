@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/card.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/media.css') }}">
     <style>
     </style>
 </head>
@@ -20,23 +21,23 @@
     @include('part.header')
     <div class="container result">
         <div class="result-content">
-            <div class="card white chart">
+            <div class="card white chart result">
                 <div class="chart">
-                    <canvas id="myChart" width="20" height="20"></canvas>
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
-            <div class="card">
+            <div class="card result black">
                 <div class="suggestion">
-                    <p>あなたにおすすめの戦術書は・・・</p>
+                    <p>あなたにおすすめの戦術書は</p>
                     <div class="book">
-                        <img src='book_images/<?php echo $result_book['path']; ?>' width=100 height=100><br>
+                        <img src='book_images/<?php echo $result_book['path']; ?>'><br>
                         <p><?php echo $result_book['title']; ?><p>
                     </div>
                     <!-- <p>です</p> -->
                 </div>
             </div>
         </div>
-        <div class="action_choices">
+        <div class="action_choices multi">
             <button type="button" class="trans-btn" onclick="location.href='nanikiru'" onfocus="this.blur();"><span
                     class="btn-shine">戻る</span></button>
             <button type="button" class="trans-btn" onclick="location.href='description'" onfocus="this.blur();"><span
@@ -92,7 +93,7 @@
                     }
                 },
                 // responsive: true,
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
             }
         });
 

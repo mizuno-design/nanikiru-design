@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/card.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/media.css') }}">
         <style>
         </style>
     </head>
@@ -42,7 +43,7 @@
                                 </div>
 
                                 <!-- 回答選択肢を作成 -->
-                                <div class="answer_area">
+                                <div class="answer_area description">
                                     <!-- 回答番号 -->
                                     <span> A<?php echo $qa_num; ?>.&nbsp;&nbsp;</span>
                                     <!-- 正解順選択肢 -->

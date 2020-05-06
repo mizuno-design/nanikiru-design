@@ -1,0 +1,177 @@
+@media (max-width: 960px) {
+
+    :root {
+    --card-width: calc(var(--body-width) * 0.85);
+    --card-height: 25em;
+    --result-card-width: calc(var(--body-width) * 0.80);
+    --result-card-height: calc(var(--body-width) * 0.70);
+    --card-innerPadding: 30px;
+    --result-parts-width: 85%;
+    --result-parts-height: 100%;
+  } 
+  .result.full-screen {
+    height: auto;
+    display: flex;
+  }
+  .container.result {
+    margin: 2.0em auto;
+    height: auto;
+    display: flex;
+  }
+  .result-content {
+    flex-direction: column;
+    height: auto;
+  }
+  .card.result {
+    width: var(--result-card-width);
+    height: var(--result-card-height);
+    margin: 2em 0;
+  }
+  .chartjs-render-monitor {
+    position: absolute;
+    bottom: 0%;
+    height: calc(var(--body-height) * 0.33);
+    width: calc(var(--body-width) * 0.25);
+  }
+  .result.card.chart {
+    height: var(--result-card-height);
+  }
+  .action_choices.multi {
+    margin: 2em 0;
+  }
+  .book > img {
+    width: calc(var(--body-width) * 0.30);
+    height: calc(var(--body-width) * 0.45)
+  }
+
+
+}
+
+@media (max-width: 560px) {
+
+  /* common */
+  :root {
+    --body-width: 100vw;
+    --body-height: 100vh;
+    --header-height: 6em;
+    --footer-height: 3em;
+    --front-height: 35em;
+    --description-height: 25em;
+    --button-height: 3em;
+    --paishi-pai-size: 1.8em;
+    --pai-to-char: 1.5;
+    /*文字に対してのドラ画像倍率*/
+    --result-parts-width: 70%;
+    --result-parts-height: 100%;
+    --result-card-width: calc(var(--body-width) * 0.95);
+    --result-card-height: calc(var(--body-width) * 1.10);
+    --card-border: solid 1px #dddddd;
+    --card-width: calc(var(--body-width) * 0.95);
+    --card-height: 17em;
+    --card-innerPadding: 30px;
+  } 
+
+  .sp-br {
+    display: inline;
+  }
+  .sp-none {
+    display: none;
+  }
+
+  .container {
+    margin: 3em auto 4em;
+  }
+
+  /* top */
+  .container.top,
+  .container.result {
+    position: relative;
+    /* justify-content: flex-end; */
+  }
+  .front {
+    position: absolute;
+    top: 20%;
+    display: flex;
+    height: 70%;
+    /* height: calc(var(--body-height) - var(--header-height) - var(--footer-height)); */
+    /* height: var(--front-height); */
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .top-description {
+    height : auto;
+    justify-content: space-evenly;
+  }
+  .description-title > h2 {
+    font-size: 1.9em;
+  } 
+  .description-detail > p {
+    margin-top: 1em;
+  }
+  
+
+  /* nanikiru */
+  .question_info {
+    margin-top: 0;
+    font-size: 1.3em;
+  }
+  .question_area {
+    height: calc(var(--card-height) * 0.45);
+  }
+  .problem {
+    /* position: relative; */
+    width: 98%;
+  }
+  .paishi {
+    /* position: absolute; */
+    font-size: calc(var(--body-width) * 0.044);
+  }
+
+  .card_outer{
+    margin-bottom: 1em;
+  }
+
+
+  /* result */
+  .chart {
+    width: 120vw;
+    height: 80vw;
+  }
+  .chartjs-render-monitor {
+    position: absolute;
+    bottom: 15%;
+    height: calc(var(--body-height) * 0.33);
+    width: calc(var(--body-width) * 0.17);
+  }
+  .suggestion {
+    height: 90%;
+  }
+  .suggestion > p {
+    font-size: 1.2em;
+  }
+  .card.result.black {
+    height: calc(var(--result-card-height) * 1.20);
+  }
+  .book > p {
+    font-size: 1.4em;
+  }
+  .book > img {
+    width: calc(var(--body-width) * 0.50);
+    height: calc(var(--body-width) * 0.80)
+  }
+  .action_choices.multi {
+    display: flex;
+    margin: 2.0em auto 0;
+    height: calc(var(--button-height) * 3.5);
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  .action_choices > button {
+    margin: 1.0em;
+  }
+
+  /* description */
+  .answer_area.description {
+    font-size: calc(var(--body-width) * 0.036);
+  }
+}
