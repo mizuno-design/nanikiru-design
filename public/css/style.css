@@ -27,7 +27,11 @@ body {
     min-height: var(--body-height);
     margin: 0 auto;
 
-    background: linear-gradient(270deg, #3572c6, #7648d4);
+    background: linear-gradient(
+        270deg,
+        rgba(53, 114, 198, 0.85),
+        rgba(118, 72, 212, 0.85)
+    );
     background-size: 600% 600%;
     animation: AnimationName 10s ease infinite;
 
@@ -71,6 +75,10 @@ body {
     -webkit-box-shadow: 0px 6px 3px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0px 6px 3px rgba(0, 0, 0, 0.3);
 }
+.header > h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
 
 .footer {
     height: var(--footer-height);
@@ -92,11 +100,12 @@ body {
 /* 共通用 */
 .container {
     display: flex;
+    width: var(--body-width);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 3em auto;
+    margin: 7em auto;
     max-width: var(--body-width);
 }
 
@@ -140,9 +149,13 @@ body {
 
 .container {
     display: flex;
+    /* width: 100vw; */
+    /* overflow: hidden; */
+    /* margin: 0 auto; */
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin-top: 4em;
     /* width: var(--body-width); */
 }
 
@@ -153,6 +166,10 @@ body {
     justify-content: space-around;
     align-items: center;
     margin: 1em auto;
+}
+
+.sp-br {
+    display: none;
 }
 
 /* top用 */
@@ -167,7 +184,7 @@ body {
 
 .front {
     height: var(--front-height);
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     justify-content: space-around;
 }
@@ -180,6 +197,11 @@ body {
     animation-name: fadein;
     animation-duration: 2s;
     /* animation-iteration-count: infinite; */
+}
+
+.description-title > h2,
+.description-detail > p {
+    display: block;
 }
 
 @keyframes fadein {
@@ -243,6 +265,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 2em;
     margin-bottom: 3em;
 }
 
@@ -356,11 +379,13 @@ body {
     align-items: center;
 }
 
+.card.result {
+    height: 100%;
+}
+
 .chart {
     width: var(--result-parts-width);
-    height: var(--result-parts-height);
-    /* margin: 0 auto; */
-    /* z-index: 1; */
+    height: calc(var(--result-parts-height) * 1);
 }
 
 .card.chart {
@@ -370,14 +395,14 @@ body {
 .chartjs-render-monitor {
     position: absolute;
     bottom: 0;
-    height: calc(var(--body-height) * 0.33);
-    width: calc(var(--body-width) * 0.17);
+    height: calc(var(--body-height) * 0.25);
+    width: calc(var(--body-width) * 0.5);
 }
 
 .suggestion {
     width: 90%;
     /* max-width: var(--result-parts-width); */
-    height: calc(var(--body-height) * 0.5);
+    height: 100%;
     /* height: var(--result-parts-height); */
     display: flex;
     justify-content: space-evenly;
@@ -387,12 +412,12 @@ body {
 }
 
 .suggestion p {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 300;
 }
 
 .suggestion > p {
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 300;
 }
 
@@ -406,7 +431,7 @@ body {
 }
 
 .book > img {
-    width: calc(var(--body-width) * 0.17);
+    width: calc(var(--body-width) * 0.14);
     height: calc(var(--body-height) * 0.33);
 }
 

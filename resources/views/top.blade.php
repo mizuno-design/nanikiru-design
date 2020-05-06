@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/card.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/media.css') }}">
         <style>
         </style>
     </head>
@@ -19,10 +20,10 @@
             <div class="front">
                 <div class="top-description">
                     <div class="description-title">
-                        <h2>Mahsis(マーシス)は、自身の雀力の強みと弱みを分析するサービスです。</h2>
+                        <h2>Mahsis(マーシス)では<span class="sp-none">、</span><br class="sp-br">雀力の強みと弱みを<br class="sp-br">分析できます。</h2>
                     </div>
                     <div class="description-detail">
-                        <p>下の分析ボタンを押し、出題される何切るに答えることで、牌効率の強みと弱みが分かります。</p>
+                        <p>何切るに答えることで<span class="sp-none">、</span><br class="sp-br">牌効率の強みと弱みを<br class="sp-br">知ることができます。</p>
                     </div>
                 </div>
                 <div class="action-choices">
