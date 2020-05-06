@@ -55,7 +55,8 @@
                             <!-- TODO テスト簡易化のため初期値を設定 Deploy時に消す -->
                             <input id=<?php echo "question0_$qa_num" ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>"
-                                value="<?php echo $answer_point_array[$qa_num][0]; ?>">
+                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" checked required>
+                            <!-- checked required -->
                             <label for=<?php echo "question0_$qa_num"; ?>>
                                 <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][0]) }}">
                             </label>

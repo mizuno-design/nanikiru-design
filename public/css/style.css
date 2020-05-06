@@ -37,10 +37,19 @@ body {
     animation-iteration-count: infinite;
     animation-timing-function: ease; */
 }
+
 @keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 .full-screen {
@@ -225,16 +234,21 @@ body {
     animation-name: slide;
     animation-duration: 4s;
 }
+
 @keyframes slide {
-    0%{
+    0% {
         transform: scale(0.1)
-    }100%{
-        transform: scale(1,1);
+    }
+
+    100% {
+        transform: scale(1, 1);
     }
 }
+
 .description-title:hover::after {
     transform: scale(1, 1);
 }
+
 .description-detail p {
     font-weight: 300;
     font-size: 1.4em;
@@ -338,9 +352,8 @@ body {
 /* 選択された画像を囲む */
 .answer_area input:checked+label img {
     box-sizing: border-box;
-    border: 0.17em solid rgba(79, 255, 88, 0.8);
+    border: 0.17em solid rgba(255, 0, 0, 0.979);
     border-radius: 3px;
-
 }
 
 /* 選択されていない画像を暗くする */
