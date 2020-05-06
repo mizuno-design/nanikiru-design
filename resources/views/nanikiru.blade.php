@@ -18,18 +18,12 @@
 
 <body class="nanikiru">
     @include('part.header')
+     <div class="progress">
+         <div id="nanikiruProgress" class="progress-bar progress-bar-animated" role="progressbar"></div>
+     </div>
     <div class="container">
         <form method="POST" action="result" name="nanikiruform">
             <div class="card_outer">
-
-                <!-- <div>
-                    <progress id="nanikiruProgress" value="0" max="18"></progress>
-                </div> -->
-
-                <div id="container"></div>
-
-
-
                 @csrf
                 <!-- 牌姿画像 -->
                 @foreach($paishi_image_array as $i => $paishi_image)
@@ -106,7 +100,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
     <script>
         function formcount() {
             var count = 0;
@@ -123,44 +116,17 @@
 
         // プログレスバーを更新する
         function updateProgress(count) {
-            document.getElementById("nanikiruProgress").value = count;
-            document.getElementById("nanikiruProgress").innerText = count;
+            // inputの数を取得してformの数を数える
+            var totalformCount = (document.nanikiruform.length - 2) / 3;
+            // 回答している割合
+            var answerRate = (count / totalformCount) * 100;
+            console.log(answerRate);
+            document.getElementById("nanikiruProgress").style.width = answerRate + "%";
+            // プログレスバー内の文字出力
+            var progressText = count + "/" +totalformCount;
+            document.getElementById("nanikiruProgress").innerText = progressText;
             console.log("progress:", count);
         }
-
-       // progressbar.js@1.0.0 version is used
-       // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
-
-       var bar = new ProgressBar.Line(container, {
-       strokeWidth: 4,
-       easing: 'easeInOut',
-       duration: 1400,
-       color: '#FFEA82',
-       trailColor: '#eee',
-       trailWidth: 1,
-       svgStyle: {width: '100%', height: '100%'},
-       text: {
-       style: {
-       // Text color.
-       // Default: same as stroke color (options.color)
-       color: '#999',
-       position: 'absolute',
-       right: '0',
-       top: '30px',
-       padding: 0,
-       margin: 0,
-       transform: null
-       },
-       autoStyleContainer: false
-       },
-       from: {color: '#FFEA82'},
-       to: {color: '#ED6A5A'},
-       step: (state, bar) => {
-       bar.setText(Math.round(bar.value() * 100) + ' %');
-       }
-       });
-
-       bar.animate(1.0); // Number from 0.0 to 1.0
 
     </script>
 
