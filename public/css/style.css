@@ -196,6 +196,11 @@ body {
     /* outline-offset: 0px; */
     text-shadow: none;
     transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .btn-shine:hover {
