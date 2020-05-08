@@ -21,12 +21,12 @@
     @include('part.header')
     <div class="container result">
         <div class="result-content">
-            <div class="card white chart result">
+            <div class="card result white chart fade-in-down">
                 <div class="chart">
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
-            <div class="card result black">
+            <div class="card result black fade-in-down">
                 <div class="suggestion">
                     <p>あなたにおすすめの戦術書は</p>
                     <div class="book">
