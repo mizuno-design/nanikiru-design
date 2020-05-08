@@ -11,6 +11,7 @@
     /*文字に対してのドラ画像倍率*/
     --result-parts-width: 70%;
     --result-parts-height: 100%;
+    --progress-height: 2.5em;
 }
 
 * {
@@ -29,11 +30,11 @@ body {
 
     background: linear-gradient(
         270deg,
-        rgba(53, 114, 198, 0.85),
-        rgba(118, 72, 212, 0.85)
+        rgba(53, 114, 198, 0.70),
+        rgba(118, 72, 212, 0.70)
     );
     background-size: 600% 600%;
-    animation: AnimationName 10s ease infinite;
+    animation: AnimationName 30s ease infinite;
 
     /* animation-name: bganime;
     animation-duration: 10s;
@@ -55,6 +56,42 @@ body {
     }
 }
 
+@keyframes shiver {
+    0% {transform: translate(0px, 0px) rotateZ(0deg)}
+    25% {transform: translate(2px, 2px) rotateZ(1deg)}
+    50% {transform: translate(0px, 2px) rotateZ(0deg)}
+    75% {transform: translate(2px, 0px) rotateZ(-1deg)}
+    100% {transform: translate(0px, 0px) rotateZ(0deg)}
+}
+
+@keyframes shiver-pro {
+    0% {transform: translate(-50%+0px, 0px) rotateZ(0deg)}
+    25% {transform: translate(-50%+2px, 2px) rotateZ(1deg)}
+    50% {transform: translate(-50%+0px, 2px) rotateZ(0deg)}
+    75% {transform: translate(-50%+2px, 0px) rotateZ(-1deg)}
+    100% {transform: translate(-50%+0px, 0px) rotateZ(0deg)}
+}
+
+.shivering {
+    animation: shiver 2s;
+}
+.shivering-hover:hover {
+    animation: shiver 2s infinite;
+}
+
+.shivering-tiny {
+    animation: shiver-horizon 0.2s 15;
+}
+
+/* #progressRate {
+    position: absolute;
+    animation: shiver-pro 0.2s 1500;
+} */
+
+.black-text {
+    color: black;
+}
+
 .full-screen {
     width: var(--body-width);
     height: var(--body-height);
@@ -63,8 +100,7 @@ body {
 .header {
     height: var(--header-height);
     font-family: "Montserrat", sans-serif;
-    background-color: #333333;
-    opacity: 0.9;
+    background-color: rgb(50, 50, 50);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,6 +235,55 @@ body {
     /* animation-iteration-count: infinite; */
 }
 
+.fade-in-left {
+    animation-name: fade-in-left;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.9s;
+}
+.fade-in-left:nth-child(1) {
+    animation-delay: 0.0s;
+}
+.fade-in-left:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.fade-in-left:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.fade-in-left:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.fade-in-left:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.fade-in-right {
+    animation-name: fade-in-right;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.9s;
+}
+.fade-in-right:nth-child(1) {
+    animation-delay: 0.0s;
+}
+.fade-in-right:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.fade-in-right:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.fade-in-right:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.fade-in-right:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.fade-in-down {
+    animation-name: fade-in-down;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.9s;
+}
+
+
 .description-title > h2,
 .description-detail > p {
     display: block;
@@ -209,8 +294,40 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(30%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(-30%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -239,6 +356,19 @@ body {
     animation-name: slide;
     animation-duration: 4s;
 }
+.description-title:hover::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: "";
+    width: 98%;
+    height: 2px;
+    background: #ffffff;
+    transform-origin: right;
+    animation-name: slide-reverse;
+    animation-duration: 4s;
+    transition: width;
+}
 
 @keyframes slide {
     0% {
@@ -250,6 +380,16 @@ body {
     }
 }
 
+@keyframes slide-reverse {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    100% {
+        transform: scale(0.1);
+    }
+}
+
 .description-title:hover::after {
     transform: scale(1, 1);
 }
@@ -258,6 +398,47 @@ body {
     font-weight: 300;
     font-size: 1.4em;
 }
+
+/* nanikiru */
+
+#progressRate {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    color: rgba(255, 255, 255, 1.0);
+    /* line-height: var(--progress-height); */
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.progress {
+    position: relative;
+    width: 100%;
+    height: var(--progress-height);
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    background-color: rgba(50, 50, 50, 1.0);
+    border-top: solid 0.1em rgba(150, 150, 150, 1.0);
+    /* opacity: 0.90; */
+    box-shadow: 0em 0.4em 0.4em 0em rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 0.3em 0.3em;
+}
+.progress p {
+    mix-blend-mode: difference;
+    /* background-color: black; */
+}
+.progress-bar {
+    width: 5px;
+    height: calc(var(--progress-height) * 0.96);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0em 0em 0.1em 0em rgba(255, 255, 255, 0.50);
+    text-align: center;
+    transition: width 2s;
+    border-radius: 0em 0.2em 0.2em 0.2em;
+}
+
 
 /* カード用@result, description */
 .card_outer {
@@ -356,13 +537,16 @@ body {
 /* 選択された画像を囲む */
 .answer_area input:checked + label img {
     box-sizing: border-box;
-    border: 0.17em solid rgba(255, 0, 0, 0.979);
+    /* border: 0.17em solid rgba(255, 0, 149, 0.5); */
     border-radius: 3px;
+    box-shadow: 0 0 0.5em 0em rgba(255, 255, 255, 0.5);
+    transition: box-shadow 0.5s cubic-bezier(0.0, 0.0, 0.2, 1.0);
 }
 
 /* 選択されていない画像を暗くする */
 .answer_area input:not(:checked) + label img {
-    opacity: 0.9;
+    opacity: 0.7;
+    transition: box-shadow 0.5s cubic-bezier(0.0, 0.0, 0.2, 1.0);
 }
 
 .submit_button {
@@ -433,20 +617,4 @@ body {
 .book > img {
     width: calc(var(--body-width) * 0.14);
     height: calc(var(--body-height) * 0.33);
-}
-
-.progress {
-    width: 100%;
-    height: 30px;
-    position: sticky;
-    top: 0px;
-    z-index: 1;
-    background-color: rgb(100, 200, 250, 0.3);
-}
-
-.progress-bar {
-    height: 30px;
-    width: 5px;
-    background-color: rgb(0, 170, 170, 0.7);
-    text-align: center;
 }

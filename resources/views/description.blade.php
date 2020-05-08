@@ -20,7 +20,7 @@
             <div class="card_outer">
                     @foreach($paishi_image_array as $i => $paishi_image)
                         <?php $qa_num = $i+1; ?>
-                        <div class="card">
+                        <div class="card fade-in-right">
                             <div class="problem">
                                 <div class="question_area">
                                     <div class="question_info">
