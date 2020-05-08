@@ -89,7 +89,7 @@
                 @endforeach
             </div>
             <div class="action-choices">
-                <label for="answer-btn" onclick="test1()">
+                <label for="answer-btn">
                     <div class="btn-shine" onclick="checkCompletion()">
                         <input id="answer-btn" class="trans-btn" type="submit" value="回答する" onfocus="this.blur();">
                     </div>
@@ -110,9 +110,9 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="{{ asset('js/jquery.notify.min.js') }}"></script>
     <script>
-        countAnswered();
         var flagComplete = false;
         var nanikiruForm = document.nanikiruForm;
+        countAnswered();
 
         function countAnswered() {
             let count = 0;
@@ -126,11 +126,6 @@
                 }
             }
             updateProgress(count);
-
-        }
-
-        function test1() {
-            console.log("aaaa");
         }
 
         // プログレスバーを更新する
