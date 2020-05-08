@@ -62,7 +62,8 @@
                             <!-- TODO テスト簡易化のため初期値を設定 Deploy時に消す -->
                             <input id=<?php echo "question0_$qa_num" ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>"
-                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" onclick="countAnswered();">
+                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" onclick="countAnswered();"
+                                checked required>
                             <!-- checked required -->
                             <!-- JSにてカウント -->
                             <label for=<?php echo "question0_$qa_num"; ?>>
@@ -88,9 +89,11 @@
                 @endforeach
             </div>
             <div class="action-choices">
-                <div class="btn-shine" onclick="checkCompletion()">
-                    <input id="answer-btn" class="trans-btn" type="submit" value="回答する" onfocus="this.blur();">
-                </div>
+                <label for="answer-btn" onclick="test1()">
+                    <div class="btn-shine" onclick="checkCompletion()">
+                        <input id="answer-btn" class="trans-btn" type="submit" value="回答する" onfocus="this.blur();">
+                    </div>
+                </label>
             </div>
         </form>
     </div>
@@ -124,6 +127,10 @@
             }
             updateProgress(count);
 
+        }
+
+        function test1() {
+            console.log("aaaa");
         }
 
         // プログレスバーを更新する
