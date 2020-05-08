@@ -199,6 +199,10 @@ body {
     cursor: pointer;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .btn-shine:hover {
     border-color: #ffffff;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
