@@ -28,11 +28,9 @@ body {
     min-height: var(--body-height);
     margin: 0 auto;
 
-    background: linear-gradient(
-        270deg,
-        rgba(53, 114, 198, 0.70),
-        rgba(118, 72, 212, 0.70)
-    );
+    background: linear-gradient(270deg,
+            rgba(53, 114, 198, 0.70),
+            rgba(118, 72, 212, 0.70));
     background-size: 600% 600%;
     animation: AnimationName 30s ease infinite;
 
@@ -57,24 +55,53 @@ body {
 }
 
 @keyframes shiver {
-    0% {transform: translate(0px, 0px) rotateZ(0deg)}
-    25% {transform: translate(2px, 2px) rotateZ(1deg)}
-    50% {transform: translate(0px, 2px) rotateZ(0deg)}
-    75% {transform: translate(2px, 0px) rotateZ(-1deg)}
-    100% {transform: translate(0px, 0px) rotateZ(0deg)}
+    0% {
+        transform: translate(0px, 0px) rotateZ(0deg)
+    }
+
+    25% {
+        transform: translate(2px, 2px) rotateZ(1deg)
+    }
+
+    50% {
+        transform: translate(0px, 2px) rotateZ(0deg)
+    }
+
+    75% {
+        transform: translate(2px, 0px) rotateZ(-1deg)
+    }
+
+    100% {
+        transform: translate(0px, 0px) rotateZ(0deg)
+    }
 }
 
 @keyframes shiver-pro {
-    0% {transform: translate(-50%+0px, 0px) rotateZ(0deg)}
-    25% {transform: translate(-50%+2px, 2px) rotateZ(1deg)}
-    50% {transform: translate(-50%+0px, 2px) rotateZ(0deg)}
-    75% {transform: translate(-50%+2px, 0px) rotateZ(-1deg)}
-    100% {transform: translate(-50%+0px, 0px) rotateZ(0deg)}
+    0% {
+        transform: translate(-50%+0px, 0px) rotateZ(0deg)
+    }
+
+    25% {
+        transform: translate(-50%+2px, 2px) rotateZ(1deg)
+    }
+
+    50% {
+        transform: translate(-50%+0px, 2px) rotateZ(0deg)
+    }
+
+    75% {
+        transform: translate(-50%+2px, 0px) rotateZ(-1deg)
+    }
+
+    100% {
+        transform: translate(-50%+0px, 0px) rotateZ(0deg)
+    }
 }
 
 .shivering {
     animation: shiver 2s;
 }
+
 .shivering-hover:hover {
     animation: shiver 2s infinite;
 }
@@ -111,7 +138,8 @@ body {
     -webkit-box-shadow: 0px 6px 3px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0px 6px 3px rgba(0, 0, 0, 0.3);
 }
-.header > h1 {
+
+.header>h1 {
     font-size: 2.5rem;
     font-weight: normal;
 }
@@ -211,9 +239,7 @@ body {
 /* top用 */
 .container.top,
 .container.result {
-    height: calc(
-        var(--body-height) - var(--header-height) - var(--footer-height)
-    );
+    height: calc(var(--body-height) - var(--header-height) - var(--footer-height));
     width: 100vw;
     margin: 0 auto;
 }
@@ -240,18 +266,23 @@ body {
     animation-timing-function: ease-in-out;
     animation-duration: 0.9s;
 }
+
 .fade-in-left:nth-child(1) {
     animation-delay: 0.0s;
 }
+
 .fade-in-left:nth-child(2) {
     animation-delay: 0.2s;
 }
+
 .fade-in-left:nth-child(3) {
     animation-delay: 0.4s;
 }
+
 .fade-in-left:nth-child(4) {
     animation-delay: 0.6s;
 }
+
 .fade-in-left:nth-child(5) {
     animation-delay: 0.8s;
 }
@@ -261,18 +292,23 @@ body {
     animation-timing-function: ease-in-out;
     animation-duration: 0.9s;
 }
+
 .fade-in-right:nth-child(1) {
     animation-delay: 0.0s;
 }
+
 .fade-in-right:nth-child(2) {
     animation-delay: 0.2s;
 }
+
 .fade-in-right:nth-child(3) {
     animation-delay: 0.4s;
 }
+
 .fade-in-right:nth-child(4) {
     animation-delay: 0.6s;
 }
+
 .fade-in-right:nth-child(5) {
     animation-delay: 0.8s;
 }
@@ -284,8 +320,8 @@ body {
 }
 
 
-.description-title > h2,
-.description-detail > p {
+.description-title>h2,
+.description-detail>p {
     display: block;
 }
 
@@ -294,6 +330,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -305,6 +342,7 @@ body {
         opacity: 0;
         transform: translateX(30%);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -316,6 +354,7 @@ body {
         opacity: 0;
         transform: translateX(-30%);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -327,6 +366,7 @@ body {
         opacity: 0;
         transform: translateY(-30%);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -356,6 +396,7 @@ body {
     animation-name: slide;
     animation-duration: 4s;
 }
+
 .description-title:hover::after {
     position: absolute;
     bottom: -4px;
@@ -425,10 +466,12 @@ body {
     box-shadow: 0em 0.4em 0.4em 0em rgba(0, 0, 0, 0.15);
     border-radius: 0 0 0.3em 0.3em;
 }
+
 .progress p {
     mix-blend-mode: difference;
     /* background-color: black; */
 }
+
 .progress-bar {
     width: 5px;
     height: calc(var(--progress-height) * 0.96);
@@ -441,7 +484,7 @@ body {
 
 
 /* カード用@result, description */
-.card_outer {
+.card-outer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -463,7 +506,7 @@ body {
     flex-direction: column;
 }
 
-.question_info {
+.question-info {
     width: 100%;
     height: calc(var(--card-height) * 0.55 * 0.35);
     display: flex;
@@ -474,8 +517,6 @@ body {
     margin-top: 0.5em;
 }
 
-.question_info img {
-}
 
 .paishi {
     height: calc(var(--card-height) * 0.55 * 0.4);
@@ -486,7 +527,7 @@ body {
     font-size: var(--paishi-pai-size);
 }
 
-.question_area {
+.question-area {
     height: calc(var(--card-height) * 0.55);
     width: 100%;
     display: flex;
@@ -495,7 +536,7 @@ body {
     flex-direction: column;
 }
 
-.answer_area {
+.answer-area {
     height: calc(var(--card-height) * 0.3);
     width: 100%;
     display: flex;
@@ -503,31 +544,31 @@ body {
     align-items: center;
 }
 
-.answer_area > span {
+.answer-area>span {
     font-weight: 300;
     font-size: 1.5em;
 }
 
-.question_area img {
+.question-area img {
     width: calc(var(--pai-to-char) * 1em);
     max-width: calc(var(--pai-to-char) * 1em);
     height: auto;
 }
 
 /* radioボタン消す */
-.answer_area input[type="radio"] {
+.answer-area input[type="radio"] {
     display: none;
 }
 
-.description_area {
+.description-area {
     width: 100%;
 }
 
-.description_content {
+.description-content {
     margin: 1em auto;
 }
 
-.answer_area img {
+.answer-area img {
     max-width: 3em;
     margin: 0 1em;
     height: auto;
@@ -535,7 +576,7 @@ body {
 }
 
 /* 選択された画像を囲む */
-.answer_area input:checked + label img {
+.answer-area input:checked+label img {
     box-sizing: border-box;
     /* border: 0.17em solid rgba(255, 0, 149, 0.5); */
     border-radius: 3px;
@@ -544,13 +585,9 @@ body {
 }
 
 /* 選択されていない画像を暗くする */
-.answer_area input:not(:checked) + label img {
+.answer-area input:not(:checked)+label img {
     opacity: 0.7;
     transition: box-shadow 0.5s cubic-bezier(0.0, 0.0, 0.2, 1.0);
-}
-
-.submit_button {
-    text-align: center;
 }
 
 /* result用 */
@@ -600,7 +637,7 @@ body {
     font-weight: 300;
 }
 
-.suggestion > p {
+.suggestion>p {
     font-size: 1.5em;
     font-weight: 300;
 }
@@ -614,7 +651,7 @@ body {
     flex-direction: column;
 }
 
-.book > img {
+.book>img {
     width: calc(var(--body-width) * 0.14);
     height: calc(var(--body-height) * 0.33);
 }

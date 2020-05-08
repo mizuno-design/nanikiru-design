@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <div class="action_choices multi">
+        <div class="action-choices multi">
             <button type="button" class="trans-btn" onclick="location.href='nanikiru'" onfocus="this.blur();"><span
                     class="btn-shine">戻る</span></button>
             <button type="button" class="trans-btn" onclick="location.href='description'" onfocus="this.blur();"><span

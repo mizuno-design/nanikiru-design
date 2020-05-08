@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://unpkg.com/sanitize.css" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/card.css') }}">
@@ -19,22 +20,22 @@
 
 <body class="nanikiru">
     @include('part.header')
-     <div class="progress">
-         <div id="nanikiruProgress" class="progress-bar progress-bar-animated" role="progressbar" aria-valuemin="0">
-         </div>
-         <p id="progressRate" class="shivering-tiny"></p>
-     </div>
+    <div class="progress">
+        <div id="nanikiruProgress" class="progress-bar progress-bar-animated" role="progressbar" aria-valuemin="0">
+        </div>
+        <p id="progressRate" class="shivering-tiny"></p>
+    </div>
     <div class="container">
         <form method="POST" action="result" name="nanikiruForm">
-            <div class="card_outer">
+            <div class="card-outer">
                 @csrf
                 <!-- 牌姿画像 -->
                 @foreach($paishi_image_array as $i => $paishi_image)
                 <?php $qa_num = $i+1; ?>
                 <div class="card fade-in-left">
                     <div class="problem">
-                        <div class="question_area">
-                            <div class="question_info">
+                        <div class="question-area">
+                            <div class="question-info">
                                 <!-- 問題番号 -->
                                 <span> Q<?php echo $qa_num; ?>.&nbsp;&nbsp;</span>
                                 <?php echo $kyoku_array[$i]; ?>
@@ -54,14 +55,15 @@
                         </div>
 
                         <!-- 回答選択肢を作成 -->
-                        <div class="answer_area">
+                        <div class="answer-area">
                             <!-- 回答番号 -->
                             <!-- <span> A<?php echo $qa_num; ?> </span> -->
 
                             <!-- TODO テスト簡易化のため初期値を設定 Deploy時に消す -->
                             <input id=<?php echo "question0_$qa_num" ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>"
-                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" onclick="countAnswered();" checked="checked">
+                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" onclick="countAnswered();"
+                                checked required>
                             <!-- checked required -->
                             <!-- JSにてカウント -->
                             <label for=<?php echo "question0_$qa_num"; ?>>
@@ -86,10 +88,12 @@
                 </div>
                 @endforeach
             </div>
-            <div class="action_choices">
-                <div class="btn-shine" onclick="checkCompletion()">
-                    <input id="answer-btn" class="trans-btn" type="submit" value="回答する" onfocus="this.blur();">
-                </div>
+            <div class="action-choices">
+                <label for="answer-btn" onclick="test1()">
+                    <div class="btn-shine" onclick="checkCompletion()">
+                        <input id="answer-btn" class="trans-btn" type="submit" value="回答する" onfocus="this.blur();">
+                    </div>
+                </label>
             </div>
         </form>
     </div>
@@ -107,11 +111,12 @@
     <script src="{{ asset('js/jquery.notify.min.js') }}"></script>
     <script>
         countAnswered();
-        var flagComplete = false;        
+        var flagComplete = false;
+        var nanikiruForm = document.nanikiruForm;
 
         function countAnswered() {
-            var count = 0;
-            var totalSubmit = 1;
+            let count = 0;
+            const totalSubmit = 1;
 
             // formのinputの数だけ判定を繰り返す（submitはカウントしない-1）
             for (var i = 0; i < document.nanikiruForm.length - totalSubmit; i++) {
@@ -124,10 +129,14 @@
 
         }
 
+        function test1() {
+            console.log("aaaa");
+        }
+
         // プログレスバーを更新する
         function updateProgress(count) {
             var totalNonRadioInput = 2;
-            var choicesPerQuestion = 3
+            var choicesPerQuestion = 3;
 
             // inputの数を取得してformの数を数える
             var totalAnsweredCount = (document.nanikiruForm.length - totalNonRadioInput) / choicesPerQuestion;
@@ -145,7 +154,7 @@
                     },
                     icon: '<img src="images/paper_plane.png" />', //<i>, <img>
                     size: "normal", //normal | full | small
-                    overlay: true, //true | false
+                    overlay: false, //true | false
                     closeBtn: true, //true | false
                     overflowHide: false, //true | false
                     spacing: 20, //number px
@@ -163,7 +172,7 @@
             //  回答している割合でプログレスバー更新
             document.getElementById("nanikiruProgress").style.width = answeredRate + "%";
             // プログレスバー内の文字出力
-            var progressText = "( " + count + "/" +totalAnsweredCount + " )";
+            var progressText = "( " + count + "/" + totalAnsweredCount + " )";
             document.getElementById("progressRate").innerText = progressText;
             console.log("progress:", count);
         }
@@ -193,9 +202,12 @@
                     template: '<div class="notify"><div class="notify-text"></div></div>'
                 });
                 document.getElementById("answer-btn").disabled = true;
-                setTimeout(function(){document.getElementById("answer-btn").disabled = false;},1000);
+                setTimeout(function () {
+                    document.getElementById("answer-btn").disabled = false;
+                }, 1000);
             }
         }
+
     </script>
 
 </body>
