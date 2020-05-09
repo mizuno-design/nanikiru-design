@@ -48,7 +48,7 @@
     }
 
     .book>img {
-        width: calc(var(--body-width) * 0.30);
+        width: calc(var(--body-width) * 0.45 * var(--book-image-aspect-ratio));
         height: calc(var(--body-width) * 0.45)
     }
 
@@ -178,7 +178,7 @@
     }
 
     .book>img {
-        width: calc(var(--body-width) * 0.50);
+        width: calc(var(--body-width) * 0.80 * var(--book-image-aspect-ratio));
         height: calc(var(--body-width) * 0.80)
     }
 

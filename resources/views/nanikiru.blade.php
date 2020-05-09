@@ -206,6 +206,34 @@
                 }
             });
         }
+        
+
+        function scrollNotAnswered() {
+            $(function(){
+            remainTopTarget = document.getElementsByClassName("problem")[remainderArray[0] - 1];
+            let remainTopTargetY;
+            if (remainTopTarget) {
+                remainTopTargetY = remainTopTarget.offsetTop;
+                scrollTo({
+                    top: remainTopTargetY - 50,
+                    behavior: "smooth"
+                });
+            } else {
+                if (flagFinish) {
+                    document.getElementById("answer-btn").disabled = false;
+                } else {
+                    remainderArray = "1~"+totalQuestions;
+                    remainTopTargetY = 50;
+                    scrollTo({
+                        top: remainTopTargetY - 50,
+                        behavior: "smooth"
+                    });
+                }
+            }
+
+            // $('body').animate({scrollTop: remainTopTargetY}, 500, 'swing');
+            });
+        }
 
         // プログレスバーを更新する
         function updateProgress(count) {
@@ -245,6 +273,10 @@
             document.getElementById("progressRate").innerText = progressText;
         }
 
+        function nanimoshinai() {
+            void(0);
+        }
+
         function checkCompletion() {
             document.getElementById("answer-btn").disabled = true;
             scrollNotAnswered();
@@ -276,7 +308,6 @@
                 }, 1000);
             }
         }
-
     </script>
 
 </body>
