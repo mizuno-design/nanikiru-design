@@ -12,6 +12,7 @@
     --result-parts-width: 70%;
     --result-parts-height: 100%;
     --progress-height: 2.5em;
+    --book-image-aspect-ratio: 0.686;
 }
 
 * {
@@ -196,6 +197,11 @@ body {
     /* outline-offset: 0px; */
     text-shadow: none;
     transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .btn-shine:hover {
@@ -643,7 +649,7 @@ body {
 }
 
 .book {
-    width: auto;
+    width: 100%;
     height: calc(var(--result-parts-height) * 0.8);
     display: flex;
     justify-content: center;
@@ -652,6 +658,6 @@ body {
 }
 
 .book>img {
-    width: calc(var(--body-width) * 0.14);
+    width: calc(var(--body-height)  * 0.33 * var(--book-image-aspect-ratio));
     height: calc(var(--body-height) * 0.33);
 }
