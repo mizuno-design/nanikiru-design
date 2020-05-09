@@ -179,7 +179,6 @@
                     remainderArray.push(i);
                 }
             }
-            console.log(array);
             updateProgress(array.length);
         }
 
