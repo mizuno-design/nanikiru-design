@@ -62,7 +62,8 @@
                             <!-- TODO テスト簡易化のため初期値を設定 Deploy時に消す -->
                             <input id=<?php echo "question0_$qa_num" ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][0]; ?>"
-                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" onclick="countAnswered();sendNum();" data-question-num="<?php echo (string)$qa_num; ?>">
+                                value="<?php echo $answer_point_array[$qa_num][0]; ?>" onclick="sendNum();"
+                                data-question-num="<?php echo (string)$qa_num; ?>">
                             <!-- checked required -->
                             <!-- JSにてカウント -->
                             <label for=<?php echo "question0_$qa_num"; ?>>
@@ -71,14 +72,16 @@
 
                             <input id=<?php echo "question1_$qa_num"; ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][1]; ?>"
-                                value="<?php echo $answer_point_array[$qa_num][1]; ?>" onclick="countAnswered();sendNum();" data-question-num="<?php echo (string)$qa_num; ?>">
+                                value="<?php echo $answer_point_array[$qa_num][1]; ?>" onclick="sendNum();"
+                                data-question-num="<?php echo (string)$qa_num; ?>">
                             <label for=<?php echo "question1_$qa_num"; ?>>
                                 <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][1]) }}">
                             </label>
 
                             <input id=<?php echo "question2_$qa_num"; ?> type="radio"
                                 name="<?php echo "question$qa_num"."_".$answer_question_type_array[$qa_num][2];?>"
-                                value="<?php echo $answer_point_array[$qa_num][2]; ?>" onclick="countAnswered();sendNum();" data-question-num="<?php echo (string)$qa_num; ?>">
+                                value="<?php echo $answer_point_array[$qa_num][2]; ?>" onclick="sendNum();"
+                                data-question-num="<?php echo (string)$qa_num; ?>">
                             <label for=<?php echo "question2_$qa_num"; ?>>
                                 <img src="{{ asset("/tile_images/".$answer_choice_array[$qa_num][2]) }}">
                             </label>
@@ -88,9 +91,10 @@
                 @endforeach
             </div>
             <div class="action-choices">
-                <label for="answer-btn" onclick="test1()">
+                <label for="answer-btn">
                     <div class="btn-shine" onclick="checkCompletion()">
-                        <input id="answer-btn" class="trans-btn pointer" type="submit" value="回答する" onfocus="this.blur();">
+                        <input id="answer-btn" class="trans-btn pointer" type="submit" value="回答する"
+                            onfocus="this.blur();">
                     </div>
                 </label>
             </div>
@@ -119,7 +123,6 @@
 
         countQuestions();
         countAnswered();
-        console.log(remainderArray[0]);
 
         notify({
             type: "success", //alert | success | error | warning | info
@@ -161,11 +164,6 @@
 
         function countQuestions() {
             totalQuestions = document.getElementsByClassName("problem").length;
-            console.log(totalQuestions);
-        }
-
-        function initiateNum() {
-
         }
 
         function sendNum() {
@@ -174,26 +172,39 @@
             let array = Array.from(set);
             flagFinish = true;
 
-            console.log(array);
             remainderArray = [];
-            for (i = 1; i < totalQuestions+1; i++) {
+            for (i = 1; i < totalQuestions + 1; i++) {
                 i = i.toString();
                 if (!array.includes(i)) {
                     remainderArray.push(i);
-                    console.log("ifはいってる")
                 }
             }
-            console.log('下');
-            console.log(remainderArray);
-            console.log('上');
+            updateProgress(array.length);
         }
 
-        function findremainder() {
-
-        }
-
-        function test1() {
-            console.log("aaaa");
+        function scrollNotAnswered() {
+            $(function () {
+                remainTopTarget = document.getElementsByClassName("problem")[remainderArray[0] - 1];
+                let remainTopTargetY;
+                if (remainTopTarget) {
+                    remainTopTargetY = remainTopTarget.offsetTop;
+                    scrollTo({
+                        top: remainTopTargetY - 50,
+                        behavior: "smooth"
+                    });
+                } else {
+                    if (flagFinish) {
+                        document.getElementById("answer-btn").disabled = false;
+                    } else {
+                        remainderArray = "1~" + totalQuestions;
+                        remainTopTargetY = 50;
+                        scrollTo({
+                            top: remainTopTargetY - 50,
+                            behavior: "smooth"
+                        });
+                    }
+                }
+            });
         }
         
 
@@ -226,13 +237,8 @@
 
         // プログレスバーを更新する
         function updateProgress(count) {
-            var totalNonRadioInput = 2;
-            var choicesPerQuestion = 3;
 
-            // inputの数を取得してformの数を数える
-            var totalAnsweredCount = (document.nanikiruForm.length - totalNonRadioInput) / choicesPerQuestion;
-            console.log(flagComplete);
-            if (count === totalAnsweredCount) {
+            if (count === totalQuestions) {
                 document.getElementById("answer-btn").disabled = false;
                 flagComplete = true;
                 notify({
@@ -259,13 +265,12 @@
                 });
             }
             // 回答している割合
-            var answeredRate = (count / totalAnsweredCount) * 100;
+            var answeredRate = (count / totalQuestions) * 100;
             //  回答している割合でプログレスバー更新
             document.getElementById("nanikiruProgress").style.width = answeredRate + "%";
             // プログレスバー内の文字出力
-            var progressText = "( " + count + "/" + totalAnsweredCount + " )";
+            var progressText = "( " + count + "/" + totalQuestions + " )";
             document.getElementById("progressRate").innerText = progressText;
-            console.log("progress:", count);
         }
 
         function nanimoshinai() {
@@ -274,14 +279,11 @@
 
         function checkCompletion() {
             document.getElementById("answer-btn").disabled = true;
-            console.log('flag');
-            console.log(flagFinish);
-            console.log('finish');
             scrollNotAnswered();
             if (!flagComplete) {
                 notify({
                     type: "error", //alert | success | error | warning | info
-                    title: "Q"+ remainderArray +"の問題が未回答です",
+                    title: "Q" + remainderArray + "の問題が未回答です",
                     message: "全てに回答をしてから押してください",
                     position: {
                         x: "right", //right | left | center
