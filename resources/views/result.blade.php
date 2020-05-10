@@ -56,6 +56,8 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script>
+        var chartColor = "rgba(100,100,100,0.3)";
+        var labelColor = "#444"
         var ctx = document.getElementById('myChart').getContext('2d');
         var question_type_array = [];
         var question_type_count = "<?php echo(count($result_array)); ?>";
@@ -69,7 +71,7 @@
         var myChart = new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['テンパイ時の判断', 'イーシャンテン時の判断', '孤立牌の比較', '安くて遠い手の判断', '形のセオリー', '5ブロックと6ブロックの比較'],
+                labels: [ ['テンパイ時の判断'], ['1シャンテン時','の判断'], ['孤立牌の比較'], ['安くて遠い手の判断'], ['形のセオリー'], ['5ブロックと','6ブロック','の比較'], ],
                 datasets: [{
                     label: '牌効率力',
                     data: [question_type_array[0], question_type_array[1], question_type_array[2],
@@ -82,19 +84,36 @@
                         'rgba(54, 162, 235, 0.2)',
                     ],
                     borderWidth: 1,
-                }]
+                }],
             },
             options: {
                 scale: {
                     ticks: {
                         stepSize: 5,
+                        // fontColor: chartColor,
                         max: 15,
                         min: 0,
-                    }
+                    },
+                    // gridLines: {
+                    //     color: [
+                    //         chartColor, chartColor, chartColor,
+                    //     ],
+                    // },
+                    // angleLines: {
+                    //     color: chartColor,
+                    // },
+                    pointLabels: {
+                        fontColor: labelColor,
+                    },
+                },
+                legend: {
+                    labels: {
+                        fontColor: labelColor,
+                    },
                 },
                 // responsive: true,
                 maintainAspectRatio: false,
-            }
+            },
         });
 
     </script>
